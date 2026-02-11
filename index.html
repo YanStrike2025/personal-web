@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strike | Business Growth Web Solutions</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body class="bg-slate-950 text-slate-200 font-[Poppins]">
+
+    <header class="fixed w-full bg-slate-900/80 backdrop-blur-md z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+            <h1 class="text-sky-400 font-bold text-xl">Strike Dev</h1>
+
+            <nav class="space-x-6 hidden md:block">
+                <a href="#services" class="hover:text-sky-400" data-en="Services" data-es="Servicios"></a>
+                <a href="#about" class="hover:text-sky-400" data-en="About" data-es="Sobre mí"></a>
+                <a href="#contact" class="hover:text-sky-400" data-en="Contact" data-es="Contacto"></a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button id="btn-en" onclick="setLanguage('en')"
+                    class="lang-btn text-sm px-3 py-1 rounded transition-all duration-300">
+                    EN
+                </button>
+
+                <button id="btn-es" onclick="setLanguage('es')"
+                    class="lang-btn text-sm px-3 py-1 rounded transition-all duration-300">
+                    ES
+                </button>
+
+            </div>
+
+        </div>
+    </header>
+    <section class="h-screen flex items-center justify-center text-center relative overflow-hidden">
+        <video autoplay muted loop class="absolute w-full h-full object-cover opacity-20">
+            <source src="assets/videos/tech-backG.mp4" type="video/mp4">
+        </video>
+
+        <div class="relative z-10 max-w-3xl px-6" data-aos="fade-up">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6" data-en="Digital Solutions That Grow Your Business"
+                data-es="Soluciones Digitales Que Hacen Crecer Tu Negocio"></h2>
+
+            <p class="text-neutral-400 mb-8"
+                data-en="I help small and medium businesses increase sales, improve brand presence, and automate operations with modern web technologies."
+                data-es="Ayudo a pequeñas y medianas empresas a aumentar sus ventas, mejorar su presencia de marca y automatizar procesos con tecnologías web modernas.">
+            </p>
+
+            <a href="#contact" class="bg-sky-500 hover:bg-sky-600 px-6 py-3 rounded-lg font-semibold transition"
+                data-en="Get Free Consultation" data-es="Obtén una Consultoría Gratis"></a>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-16" data-en="Business Solutions"
+            data-es="Soluciones para Negocios"></h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div class="bg-slate-900 p-6 rounded-xl" data-aos="zoom-in">
+                <i class="fa-solid fa-globe text-sky-400 text-3xl mb-4"></i>
+                <h3 class="font-semibold text-lg mb-2" data-en="Business Websites" data-es="Sitios Web Empresariales">
+                </h3>
+                <p class="text-slate-400" data-en="Professional sites that turn visitors into clients."
+                    data-es="Sitios profesionales que convierten visitantes en clientes."></p>
+            </div>
+
+            <div class="bg-slate-900 p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fa-solid fa-cart-shopping text-sky-400 text-3xl mb-4"></i>
+                <h3 class="font-semibold text-lg mb-2" data-en="E-Commerce" data-es="Comercio Electrónico"></h3>
+                <p class="text-slate-400" data-en="Sell products online with secure payment systems."
+                    data-es="Vende productos en línea con sistemas de pago seguros."></p>
+            </div>
+
+            <div class="bg-slate-900 p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fa-solid fa-gears text-sky-400 text-3xl mb-4"></i>
+                <h3 class="font-semibold text-lg mb-2" data-en="Automation" data-es="Automatización"></h3>
+                <p class="text-slate-400" data-en="Save time by automating business processes."
+                    data-es="Ahorra tiempo automatizando procesos de tu negocio."></p>
+            </div>
+
+            <div class="bg-slate-900 p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fa-solid fa-code text-sky-400 text-3xl mb-4"></i>
+                <h3 class="font-semibold text-lg mb-2" data-en="Custom Systems" data-es="Sistemas Personalizados"></h3>
+                <p class="text-slate-400" data-en="Tailored software for your unique needs."
+                    data-es="Software a medida para las necesidades únicas de tu negocio."></p>
+            </div>
+
+        </div>
+    </section>
+    <section id="growth" class="py-24 max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-16" data-en="Digital Growth Strategies"
+            data-es="Estrategias de Crecimiento Digital"></h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div class="bg-slate-900 p-6 rounded-xl" data-aos="fade-up">
+                <i class="fa-brands fa-facebook text-orange-400 text-3xl mb-4"></i>
+                <h3 class="font-semibold text-lg mb-2" data-en="Social Media Advertising"
+                    data-es="Publicidad en Redes Sociales"></h3>
+                <p class="text-slate-400"
+                    data-en="Targeted ads on Facebook and Instagram to reach customers ready to buy."
+                    data-es="Anuncios dirigidos en Facebook e Instagram para llegar a clientes listos para comprar.">
+                </p>
+            </div>
+
+            <div class="bg-slate-900 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-brands fa-google text-orange-400 text-3xl mb-4"></i>
+                <h3 class="font-semibold text-lg mb-2" data-en="Google Presence" data-es="Presencia en Google"></h3>
+                <p class="text-slate-400"
+                    data-en="SEO optimization and Google Business setup so people find your business first."
+                    data-es="Optimización SEO y configuración de Google Business para que encuentren tu negocio primero.">
+                </p>
+            </div>
+
+            <div class="bg-slate-900 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-chart-line text-orange-400 text-3xl mb-4"></i>
+                <h3 class="font-semibold text-lg mb-2" data-en="Conversion Optimization"
+                    data-es="Optimización de Conversiones"></h3>
+                <p class="text-slate-400" data-en="Websites designed to turn visitors into real paying customers."
+                    data-es="Sitios diseñados para convertir visitantes en clientes reales."></p>
+            </div>
+
+            <div class="bg-slate-900 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-robot text-orange-400 text-3xl mb-4"></i>
+                <h3 class="font-semibold text-lg mb-2" data-en="Lead & Sales Automation"
+                    data-es="Automatización de Ventas y Leads"></h3>
+                <p class="text-slate-400"
+                    data-en="Automatic responses, booking systems, and sales funnels that work 24/7."
+                    data-es="Respuestas automáticas, sistemas de reservas y embudos de venta que trabajan 24/7."></p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <img src="assets/images/developer.jpg" class="rounded-xl shadow-lg" data-aos="fade-right">
+
+            <div data-aos="fade-left">
+                <h2 class="text-3xl font-bold mb-6" data-en="About Strike" data-es="Sobre Strike"></h2>
+
+                <p class="text-slate-400 mb-6"
+                    data-en="I'm Yan Carlos, a full-stack developer focused on creating high-performance digital solutions that help businesses grow and stand out."
+                    data-es="Soy Yan Carlos, desarrollador full-stack enfocado en crear soluciones digitales de alto rendimiento que ayudan a los negocios a crecer y destacar.">
+                </p>
+                <div class="flex flex-wrap gap-3 mt-4">
+                    <span
+                        class="px-4 py-2 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full text-sm font-medium hover:bg-sky-500/20 transition">
+                        React
+                    </span>
+                    <span
+                        class="px-4 py-2 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full text-sm font-medium hover:bg-sky-500/20 transition">
+                        Node.js
+                    </span>
+                    <span
+                        class="px-4 py-2 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full text-sm font-medium hover:bg-sky-500/20 transition">
+                        TypeScript
+                    </span>
+                    <span
+                        class="px-4 py-2 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full text-sm font-medium hover:bg-sky-500/20 transition">
+                        Java
+                    </span>
+                    <span
+                        class="px-4 py-2 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full text-sm font-medium hover:bg-sky-500/20 transition">
+                        .NET
+                    </span>
+                    <span
+                        class="px-4 py-2 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full text-sm font-medium hover:bg-sky-500/20 transition">
+                        PostgreSQL
+                    </span>
+                    <span
+                        class="px-4 py-2 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full text-sm font-medium hover:bg-sky-500/20 transition">
+                        MySQL
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 text-center bg-gradient-to-r from-sky-600 to-blue-700">
+        <h2 class="text-3xl font-bold mb-4" data-en="Let’s Build Your Digital Growth"
+            data-es="Construyamos el Crecimiento Digital de Tu Negocio"></h2>
+
+        <p class="mb-8" data-en="Tell me about your business and I’ll craft the right solution."
+            data-es="Cuéntame sobre tu negocio y crearé la solución ideal para ti."></p>
+
+        <a href="mailto:your@email.com" class="bg-white text-slate-900 px-6 py-3 rounded-lg font-bold"
+            data-en="Contact Me" data-es="Contáctame"></a>
+    </section>
+
+    <footer class="text-center py-8 bg-slate-950 text-slate-500 text-sm">
+        © 2026 Strike Dev Solutions
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function setLanguage(lang) {
+            localStorage.setItem("language", lang);
+
+            document.querySelectorAll("[data-en]").forEach(el => {
+                el.textContent = el.getAttribute("data-" + lang);
+            });
+
+            document.querySelectorAll(".lang-btn").forEach(btn => {
+                btn.classList.remove("lang-active");
+            });
+
+            document.getElementById("btn-" + lang).classList.add("lang-active");
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem("language") || "en";
+            setLanguage(savedLang);
+        });
+        document.addEventListener("mousemove", e => {
+            const glow = document.getElementById("cursor-glow");
+            glow.style.left = e.clientX + "px";
+            glow.style.top = e.clientY + "px";
+        });
+    </script>
+</body>
+</html>
