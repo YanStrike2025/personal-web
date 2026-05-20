@@ -41,9 +41,59 @@ window.addEventListener('scroll', () => {
   }
 
   if (window.scrollY > 80) {
-    nav.style.background = 'rgba(253,251,247,0.98)';
+    nav.style.background = 'rgba(255,250,242,0.98)';
   } else {
-    nav.style.background = 'rgba(253,251,247,0.9)';
+    nav.style.background = 'rgba(255,250,242,0.84)';
   }
 
 });
+
+// Animated custom URL rotator
+const heroUrlText = document.getElementById('heroUrlText');
+const animatedUrlText = document.getElementById('animatedUrlText');
+
+const customUrls = [
+  'cafebarranco.com',
+  'clinicasanmartin.com',
+  'abogadoslima.com',
+  'inmobiliariaandes.com',
+  'tallermotorsur.com',
+  'estudiocreativo.com',
+];
+
+let urlIndex = 0;
+
+function typeUrl(text, target, speed = 42) {
+  if (!target) {
+    return;
+  }
+
+  target.textContent = '';
+
+  let charIndex = 0;
+  const timer = setInterval(() => {
+    target.textContent += text.charAt(charIndex);
+    charIndex += 1;
+
+    if (charIndex >= text.length) {
+      clearInterval(timer);
+    }
+  }, speed);
+}
+
+function rotateUrls() {
+  const current = customUrls[urlIndex];
+
+  if (heroUrlText) {
+    heroUrlText.textContent = `www.${current}`;
+  }
+
+  typeUrl(current, animatedUrlText);
+
+  urlIndex = (urlIndex + 1) % customUrls.length;
+}
+
+if (animatedUrlText || heroUrlText) {
+  rotateUrls();
+  setInterval(rotateUrls, 2800);
+}

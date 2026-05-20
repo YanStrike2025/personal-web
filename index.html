@@ -3,69 +3,119 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Desarrollo web profesional para negocios en Peru. Sitios modernos, rapidos y orientados a ventas para empresas locales."/>
-<meta name="keywords" content="desarrollo web peru, paginas web para negocios, diseno web lima, landing page peru"/>
-  <title>DevWeb Pro | Tu web para vender más, sin complicaciones técnicas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+<meta name="description" content="Diseno web para negocios con enfoque comercial, animaciones modernas y URLs personalizadas para cada cliente."/>
+<meta name="keywords" content="diseno web, paginas web, landing page, url personalizada"/>
+<title>tech strike | Diseno Web Comercial para Negocios</title>
 <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
 
 <nav>
-  <a href="#hero" class="nav-logo"><div class="nav-dot"></div>Dev<span>Web</span> Pro</a>
-  <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#beneficios">Beneficios</a></li>
-    <li><a href="#planes">Planes</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#contacto" class="nav-cta">Hablemos</a></li>
-  </ul>
-  <button class="nav-mobile-btn" onclick="toggleMenu()" aria-label="Menu">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between; height: 72px;">
+    <a href="#hero" class="nav-logo"><div class="nav-dot"></div>tech<span>strike</span></a>
+    <ul class="nav-links">
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#urls">URLs personalizadas</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#planes">Planes</a></li>
+      <li><a href="#contacto" class="nav-cta">Cotizar ahora</a></li>
+    </ul>
+    <button class="nav-mobile-btn" onclick="toggleMenu()" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#experiencia" onclick="toggleMenu()">Experiencia</a>
+  <a href="#urls" onclick="toggleMenu()">URLs personalizadas</a>
   <a href="#servicios" onclick="toggleMenu()">Servicios</a>
-  <a href="#beneficios" onclick="toggleMenu()">Beneficios</a>
   <a href="#planes" onclick="toggleMenu()">Planes</a>
-  <a href="#porque" onclick="toggleMenu()">Por que elegirme</a>
-  <a href="#proceso" onclick="toggleMenu()">Proceso</a>
-  <a href="#contacto" onclick="toggleMenu()">Hablemos por WhatsApp</a>
+  <a href="#contacto" onclick="toggleMenu()">Cotizar por WhatsApp</a>
 </div>
 
 <section id="hero">
-  <div class="hero-grid container">
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="hero-grid container reveal">
     <div class="hero-copy reveal">
-      <p class="hero-kicker">Diseño web para emprendedores en Perú</p>
-      <h1>Tu página web lista para vender, aunque no sepas nada técnico.</h1>
-      <p class="hero-sub">Te acompaño paso a paso para que tengas una web profesional, fácil de entender y enfocada en conseguir más consultas y clientes.</p>
+      <p class="hero-kicker">Diseno web comercial para negocios</p>
+      <h1>Un sitio amigable, visual y hecho para captar clientes.</h1>
+      <p class="hero-sub">Creamos una experiencia moderna: estructura clara, imagen profesional, movimiento atractivo y rutas de contacto directas para vender más.</p>
       <div class="hero-ctas">
-        <a href="https://wa.me/51999999999?text=Hola,%20quiero%20cotizar%20una%20pagina%20web" target="_blank" class="btn-primary">Quiero mi web por WhatsApp</a>
-        <a href="#planes" class="btn-ghost">Ver planes</a>
+        <a href="https://wa.me/51987032689?text=Hola,%20quiero%20una%20web%20moderna%20para%20mi%20negocio" target="_blank" class="btn-primary">Empezar proyecto</a>
+        <a href="#urls" class="btn-ghost">Ver demo de URLs</a>
       </div>
       <ul class="hero-points">
-        <li>Te explico todo en lenguaje simple</li>
-        <li>Nos encargamos de lo técnico por ti</li>
-        <li>Soporte directo por WhatsApp</li>
+        <li>Diseno premium adaptable a celular, tablet y desktop</li>
+        <li>Animaciones suaves para transmitir confianza profesional</li>
+        <li>Estrategia de conversion con WhatsApp y formularios</li>
       </ul>
     </div>
-    <div class="hero-panel reveal reveal-delay-1">
-      <p class="panel-tag">Plan recomendado</p>
-      <h2>Plan Standard</h2>
-      <p class="panel-price">S/ 1,600 <span>anual</span></p>
-      <ul>
-        <li>Hasta 10 secciones</li>
-        <li>Integracion con WhatsApp Business</li>
-        <li>Soporte prioritario</li>
-      </ul>
-      <a href="https://wa.me/51999999999?text=Me%20interesa%20el%20Plan%20Standard" target="_blank" class="panel-link">Solicitar propuesta</a>
+    <div class="hero-visual reveal reveal-delay-1">
+      <div class="hero-browser">
+        <div class="browser-top">
+          <span></span><span></span><span></span>
+          <p class="browser-url" id="heroUrlText">www.tunegocio.pe</p>
+        </div>
+        <div class="browser-body">
+          <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHM0cW82ZnJ0NTVja2V3ODUzN2ZoOHF2NGI2dTVtMWVud2Q0Y2JwMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13HgwGsXF0aiGY/giphy.gif" alt="Animacion de interfaz de sitio web" loading="lazy"/>
+        </div>
+      </div>
+      <div class="pulse-card">
+        <p>+47% consultas desde celular</p>
+      </div>
     </div>
   </div>
-  <div class="container trust-strip reveal">
-    <p><strong>Ideal si estás empezando:</strong> no necesitas experiencia técnica, solo contarnos sobre tu negocio y tus objetivos.</p>
+</section>
+
+<section id="experiencia">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-tag">Experiencia visual</p>
+      <h2 class="section-title">Imagenes GIF y microanimaciones que hacen tu marca mas memorable</h2>
+      <p class="section-sub section-center-sub">Usamos movimiento con criterio: profesional, ligero y orientado a conversión.</p>
+    </div>
+    <div class="gif-gallery">
+      <article class="gif-card reveal">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWxveGp6eDBscjNydjQ0dnJwajU2cWp5MXFkN2xsaGh1aWxvM2JyMCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Animacion de graficos de crecimiento" loading="lazy"/>
+        <h3>Bloques comerciales dinamicos</h3>
+      </article>
+      <article class="gif-card reveal reveal-delay-1">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHk2OHJ6YXVvN2h3Z2pldDUwNnJoa2Jwa2h1bTh4dzh4c3k3YnA5MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26tn33aiTi1jkl6H6/giphy.gif" alt="Animacion de interfaz moderna" loading="lazy"/>
+        <h3>Presentacion visual moderna</h3>
+      </article>
+      <article class="gif-card reveal reveal-delay-2">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHpvYTZ4dWFweXJ0YzI5a2hnNjdobGlrY2NsNnNxMHh6N2c2cDV2NyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/fAnEC88LccN7a/giphy.gif" alt="Animacion de trabajo colaborativo" loading="lazy"/>
+        <h3>Sitios amigables y cercanos</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="urls">
+  <div class="container url-showcase reveal">
+    <div>
+      <p class="section-tag">URL personalizada</p>
+      <h2 class="section-title">Dominios Personalizados para tu Negocio</h2>
+      <p class="section-sub">Haz que tu marca destaque en internet con una URL profesional y fácil de recordar, adaptada al estilo y objetivo de tu negocio. Ofrecemos dominios personalizados que transmiten confianza, mejoran tu presencia digital y ayudan a que tus clientes te encuentren más fácilmente.</p>
+      <a href="https://wa.me/51987032689?text=Quiero%20mi%20url%20personalizada" target="_blank" class="btn-primary url-cta">Quiero mi URL personalizada</a>
+    </div>
+    <div class="url-machine" aria-live="polite">
+      <div class="url-machine-top">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="url-screen">
+        <p class="url-prefix">https://</p>
+        <p class="url-animated" id="animatedUrlText">mi-negocio.pe</p>
+      </div>
+      <div class="url-tags">
+        <span>Restaurantes</span>
+        <span>Clinicas</span>
+        <span>Abogados</span>
+        <span>Inmobiliaria</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -73,50 +123,34 @@
   <div class="container">
     <div class="section-head reveal">
       <p class="section-tag">Servicios</p>
-      <h2 class="section-title">Lo que hacemos para que consigas más clientes</h2>
-      <p class="section-sub section-center-sub">Servicios claros y prácticos para emprender con confianza online.</p>
+      <h2 class="section-title">Paquetes listos para vender mas y atender mejor</h2>
+      <p class="section-sub section-center-sub">Cada servicio se adapta a tu rubro y a como compran tus clientes.</p>
     </div>
     <div class="services-grid">
       <article class="service-card reveal">
-        <h3>Página para vender un servicio</h3>
-        <p>Ideal para promocionar una oferta concreta y recibir mensajes de potenciales clientes.</p>
+        <h3>Landing enfocada en conversion</h3>
+        <p>Oferta clara, testimonios y CTA estrategico para convertir visitas en conversaciones.</p>
       </article>
       <article class="service-card reveal reveal-delay-1">
-        <h3>Web profesional para tu negocio</h3>
-        <p>Presenta tu marca con confianza, muestra tus servicios y facilita el contacto.</p>
+        <h3>Web corporativa de confianza</h3>
+        <p>Diseno elegante para transmitir solidez y cerrar oportunidades de mayor valor.</p>
       </article>
       <article class="service-card reveal reveal-delay-2">
-        <h3>Catálogo de productos o servicios</h3>
-        <p>Muestra lo que ofreces de forma ordenada para que tus clientes decidan más rápido.</p>
+        <h3>Catalogo digital interactivo</h3>
+        <p>Muestra productos y servicios con filtros simples para facilitar decisiones de compra.</p>
       </article>
       <article class="service-card reveal">
-        <h3>Canales de contacto listos</h3>
-        <p>WhatsApp, formularios y mapa para que te escriban fácilmente desde cualquier dispositivo.</p>
+        <h3>Flujo de contacto optimizado</h3>
+        <p>WhatsApp, formularios inteligentes y llamadas a la accion visibles en toda la web.</p>
       </article>
       <article class="service-card reveal reveal-delay-1">
-        <h3>Acompañamiento y mantenimiento</h3>
-        <p>Actualizaciones y soporte para que no te preocupes por temas técnicos.</p>
+        <h3>Animaciones y motion UI</h3>
+        <p>Transiciones suaves y secciones dinamicas para una experiencia mas memorable.</p>
       </article>
       <article class="service-card reveal reveal-delay-2">
-        <h3>Visibilidad en Google local</h3>
-        <p>Mejoramos tu presencia para que te encuentren en tu ciudad y te contacten.</p>
+        <h3>SEO local y mantenimiento</h3>
+        <p>Posicionamiento local, mejoras continuas y soporte para no perder presencia digital.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<section id="beneficios">
-  <div class="container benefits-layout">
-    <div class="reveal">
-      <p class="section-tag">Beneficios</p>
-      <h2 class="section-title">Una web pensada para emprendedores ocupados</h2>
-      <p class="section-sub benefits-sub">Te ayudamos a comunicar mejor tu negocio sin que tengas que aprender diseño o programación.</p>
-    </div>
-    <div class="benefits-list">
-      <div class="benefit-item reveal"><span class="benefit-item-icon icon-accent">01</span><p>Te guiamos paso a paso desde la idea hasta la publicación.</p></div>
-      <div class="benefit-item reveal reveal-delay-1"><span class="benefit-item-icon icon-olive">02</span><p>Textos simples para que tu cliente entienda rápido lo que vendes.</p></div>
-      <div class="benefit-item reveal reveal-delay-2"><span class="benefit-item-icon icon-accent">03</span><p>Carga rápida para no perder visitas ni oportunidades.</p></div>
-      <div class="benefit-item reveal"><span class="benefit-item-icon icon-olive">04</span><p>Se adapta a celular, tablet y computadora.</p></div>
     </div>
   </div>
 </section>
@@ -124,79 +158,97 @@
 <section id="planes">
   <div class="container">
     <div class="section-head reveal">
-      <p class="section-tag">Planes anuales</p>
-      <h2 class="section-title">Inversion clara, sin costos ocultos</h2>
-      <p class="section-sub section-center-sub plans-sub">Todos los planes incluyen hosting, dominio, SSL y soporte técnico.</p>
+      <p class="section-tag">Planes</p>
+      <h2 class="section-title">Elige el plan que mejor se adapta a tu negocio</h2>
+      <p class="section-sub section-center-sub plans-sub">Flexibilidad de pago: mensual o pago único con descuento.</p>
     </div>
     <div class="plans-grid">
       <article class="plan-card reveal">
-        <h3 class="plan-name">Basico</h3>
-        <p class="plan-price">S/ 1,200 <span>/ anual</span></p>
-        <ul class="plan-features">
-          <li>Ideal para comenzar</li>
-          <li>Hasta 5 secciones</li>
+        <h3 class="plan-name">Plan Básico</h3>
+        <p class="plan-price">S/ 95 <span>mensuales / contrato anual</span></p>
+        <p class="plan-price" style="font-size: 1.4rem;">S/ 1,050 <span style="font-size: 0.85rem;">pago único</span></p>
+        <p style="font-size: 0.9rem; margin-top: 14px; color: var(--text); margin-bottom: 14px;">Ideal para negocios que necesitan una presencia digital profesional e informativa.</p>
+        <p style="font-size: 0.85rem; font-weight: 600; margin-top: 10px;">Incluye:</p>
+        <ul class="plan-features" style="margin-top: 6px;">
+          <li>Diseño web profesional</li>
+          <li>Página web informativa no autoadministrable</li>
+          <li>Hasta 8 secciones</li>
+          <li>Adaptación para celulares y tablets</li>
+          <li>Integración con WhatsApp y redes sociales</li>
           <li>Formulario de contacto</li>
-          <li>2 cambios de contenido al mes</li>
+          <li>Dominio y hosting por 12 meses</li>
+          <li>Optimización básica de velocidad</li>
+          <li>Soporte técnico básico</li>
+          <li>Actualizaciones menores de contenido</li>
         </ul>
-        <a class="plan-cta" href="https://wa.me/51999999999?text=Quiero%20el%20Plan%20Basico" target="_blank">Elegir Basico</a>
+        <a class="plan-cta" href="https://wa.me/51987032689?text=Quiero%20el%20Plan%20Basico" target="_blank" style="margin-top: 12px;">Cotizar Plan Básico</a>
       </article>
       <article class="plan-card featured reveal reveal-delay-1">
-        <p class="plan-badge">Mas elegido</p>
-        <h3 class="plan-name">Standard</h3>
-        <p class="plan-price">S/ 1,600 <span>/ anual</span></p>
-        <ul class="plan-features">
-          <li>Ideal para negocios en crecimiento</li>
-          <li>Hasta 10 secciones</li>
-          <li>WhatsApp Business integrado</li>
-          <li>5 cambios de contenido al mes</li>
+        <p class="plan-badge">Recomendado</p>
+        <h3 class="plan-name">Plan Estándar</h3>
+        <p class="plan-price">S/ 280 <span>mensuales / contrato anual</span></p>
+        <p class="plan-price" style="font-size: 1.4rem;">S/ 3,600 <span style="font-size: 0.85rem;">pago único</span></p>
+        <p style="font-size: 0.9rem; margin-top: 14px; color: var(--text); margin-bottom: 14px;">Ideal para negocios que buscan una plataforma más completa para mostrar productos, captar clientes y administrar contenido.</p>
+        <p style="font-size: 0.85rem; font-weight: 600; margin-top: 10px;">Incluye:</p>
+        <ul class="plan-features" style="margin-top: 6px;">
+          <li>Diseño web personalizado</li>
+          <li>Acceso privado y seguro</li>
+          <li>Panel administrativo protegido</li>
+          <li>Plataforma web administrable</li>
+          <li>Catálogo de productos o servicios</li>
+          <li>Panel administrativo</li>
+          <li>Gestión de contenido y secciones dinámicas</li>
+          <li>Sistema de consultas por WhatsApp y correo</li>
+          <li>Formularios avanzados</li>
+          <li>Gestión básica de clientes y solicitudes</li>
+          <li>Optimización SEO inicial</li>
+          <li>Seguridad y protección básica</li>
+          <li>Optimización de rendimiento</li>
+          <li>Dominio y hosting administrado</li>
+          <li>Mantenimiento y soporte mensual</li>
+          <li>Backups periódicos</li>
         </ul>
-        <a class="plan-cta" href="https://wa.me/51999999999?text=Quiero%20el%20Plan%20Standard" target="_blank">Elegir Standard</a>
+        <a class="plan-cta" href="https://wa.me/51987032689?text=Quiero%20el%20Plan%20Estandar" target="_blank" style="margin-top: 12px;">Cotizar Plan Estándar</a>
       </article>
       <article class="plan-card reveal reveal-delay-2">
-        <h3 class="plan-name">Profesional</h3>
-        <p class="plan-price">S/ 2,000 <span>/ anual</span></p>
-        <ul class="plan-features">
-          <li>Ideal para operaciones más completas</li>
-          <li>Páginas ilimitadas</li>
-          <li>Integraciones avanzadas</li>
-          <li>Soporte VIP y mejoras continuas</li>
+        <h3 class="plan-name">Plan Avanzado</h3>
+        <p class="plan-price">S/ 480 <span>mensuales / contrato anual</span></p>
+        <p class="plan-price" style="font-size: 1.4rem;">S/ 5,800 <span style="font-size: 0.85rem;">pago único</span></p>
+        <p style="font-size: 0.9rem; margin-top: 14px; color: var(--text); margin-bottom: 14px;">Pensado para negocios que necesitan una plataforma comercial moderna, escalable y preparada para crecer.</p>
+        <p style="font-size: 0.85rem; font-weight: 600; margin-top: 10px;">Incluye:</p>
+        <ul class="plan-features" style="margin-top: 6px;">
+          <li>Desarrollo web full stack personalizado</li>
+          <li>Acceso privado y seguro</li>
+          <li>Panel administrativo protegido</li>
+          <li>Plataforma administrable avanzada</li>
+          <li>Catálogo dinámico de productos</li>
+          <li>Gestión avanzada de inventario y contenido</li>
+          <li>Panel administrativo profesional</li>
+          <li>Gestión de pedidos y solicitudes</li>
+          <li>Sistema de contacto integrado por WhatsApp y correo</li>
+          <li>Gestión de clientes y consultas</li>
+          <li>Dashboard administrativo</li>
+          <li>Seguridad reforzada y monitoreo</li>
+          <li>Optimización avanzada de velocidad y rendimiento</li>
+          <li>Arquitectura preparada para escalar</li>
+          <li>Backups automáticos</li>
+          <li>Optimización SEO técnica</li>
+          <li>Infraestructura administrada de alto rendimiento</li>
+          <li>Mantenimiento continuo</li>
+          <li>Soporte técnico prioritario</li>
         </ul>
-        <a class="plan-cta" href="https://wa.me/51999999999?text=Quiero%20el%20Plan%20Profesional" target="_blank">Elegir Profesional</a>
+        <a class="plan-cta" href="https://wa.me/51987032689?text=Quiero%20el%20Plan%20Avanzado" target="_blank" style="margin-top: 12px;">Cotizar Plan Avanzado</a>
       </article>
     </div>
-      <p class="custom-plan-note reveal">Si no sabes qué plan elegir, te recomiendo el más conveniente según tu etapa y presupuesto.</p>
+    <p class="custom-plan-note reveal">¿No encuentras lo que buscas? Contáctanos por WhatsApp para una propuesta personalizada.</p>
   </div>
 </section>
 
-<section id="porque">
-  <div class="container why-layout">
-    <div class="reveal">
-      <p class="section-tag">Por que elegirme</p>
-      <h2 class="section-title">Trabajo contigo de forma simple y cercana</h2>
-      <a href="https://wa.me/51999999999?text=Quiero%20conocer%20mas%20sobre%20tu%20servicio" target="_blank" class="btn-primary why-cta">Hablemos hoy</a>
-    </div>
-    <div class="why-grid">
-      <article class="why-card reveal"><h3>Sin tecnicismos</h3><p>Te explico cada etapa con ejemplos claros y lenguaje simple.</p></article>
-      <article class="why-card reveal reveal-delay-1"><h3>Comunicación constante</h3><p>Recibes avances semanales y puedes resolver dudas por WhatsApp.</p></article>
-      <article class="why-card reveal"><h3>Enfoque en resultados</h3><p>Tu web se diseña para generar contactos reales, no solo verse bonita.</p></article>
-      <article class="why-card reveal reveal-delay-1"><h3>Soporte post entrega</h3><p>Te acompañamos después del lanzamiento para que no te sientas solo.</p></article>
-    </div>
-  </div>
-</section>
-
-<section id="proceso">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="section-tag">Proceso</p>
-      <h2 class="section-title">Pasos simples para lanzar tu web sin estrés</h2>
-      <p class="section-sub section-center-sub">Un proceso guiado para emprendedores sin experiencia técnica.</p>
-    </div>
-    <div class="process-steps">
-      <article class="step reveal"><span class="step-num">1</span><h3>Conversamos</h3><p>Me cuentas sobre tu negocio y te ayudo a ordenar ideas.</p></article>
-      <article class="step reveal reveal-delay-1"><span class="step-num">2</span><h3>Propuesta clara</h3><p>Te presento estructura, textos sugeridos y tiempos en lenguaje simple.</p></article>
-      <article class="step reveal reveal-delay-2"><span class="step-num">3</span><h3>Construcción</h3><p>Desarrollo tu web y te muestro avances para validar cada parte.</p></article>
-      <article class="step reveal"><span class="step-num">4</span><h3>Publicación y soporte</h3><p>Lanzamos tu sitio y te acompaño para que lo aproveches al máximo.</p></article>
-    </div>
+<section id="contacto" class="cta-final">
+  <div class="container cta-final-box reveal">
+    <h2>Quieres una web diferente para tu negocio</h2>
+    <p>Te muestro una propuesta visual con URL personalizada y estilo adaptado a tu rubro.</p>
+    <a href="https://wa.me/51987032689?text=Hola,%20quiero%20mi%20web%20con%20url%20personalizada" target="_blank" class="btn-primary">Solicitar propuesta personalizada</a>
   </div>
 </section>
 
@@ -204,51 +256,54 @@
   <div class="container">
     <div class="section-head reveal">
       <p class="section-tag">Preguntas frecuentes</p>
-      <h2 class="section-title">Respuestas claras para empezar sin miedo</h2>
+      <h2 class="section-title">Todo claro antes de empezar</h2>
     </div>
     <div class="faq-grid">
       <article class="faq-card reveal">
-        <h3>¿Necesito saber de tecnología?</h3>
-        <p>No. Yo me encargo de la parte técnica y te explico lo necesario de forma simple.</p>
+        <h3>Incluye GIFs y animaciones?</h3>
+        <p>Si. Disehamos secciones visuales con movimiento ligero para atraer atencion sin afectar velocidad.</p>
       </article>
       <article class="faq-card reveal reveal-delay-1">
-        <h3>¿Qué necesito para iniciar?</h3>
-        <p>Solo información básica de tu negocio, tus servicios y cómo quieres que te contacten.</p>
+        <h3>Puedo tener varias URLs para campanas?</h3>
+        <p>Si. Creamos URLs por servicio o temporada, totalmente adaptadas a tu cliente ideal.</p>
       </article>
       <article class="faq-card reveal reveal-delay-2">
-        <h3>¿Cuánto tarda tener mi web lista?</h3>
-        <p>Entre 10 y 15 días en promedio, según la complejidad y el contenido disponible.</p>
+        <h3>En cuanto tiempo publico mi web?</h3>
+        <p>Normalmente entre 10 y 15 días, con revisiones y acompañamiento continuo.</p>
       </article>
     </div>
   </div>
 </section>
 
-<footer id="contacto">
-  <div class="container footer-grid">
-    <div>
-      <a href="#hero" class="nav-logo footer-logo"><div class="nav-dot"></div>Dev<span>Web</span> Pro</a>
-      <p class="footer-text">Diseño y desarrollo web para emprendedores que quieren vender más sin complicarse con lo técnico.</p>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#hero" class="nav-logo footer-logo"><div class="nav-dot"></div>Tech<span>Strike</span></a>
+        <p class="footer-text">Diseño web para marcas que quieren verse profesionales y convertir más contactos.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="https://wa.me/51987032689" target="_blank" class="footer-link footer-phone">+51 987 032 689</a>
+        <a href="mailto:techstrike.dev@gmail.com" class="footer-link footer-email">techstrike.dev@gmail.com</a>
+        <p class="footer-city">Lima, Perú · Atención nacional e internacional</p>
+      </div>
+      <div class="footer-col">
+        <h4>Atajos</h4>
+        <a href="#urls" class="footer-link">URLs personalizadas</a>
+        <a href="#servicios" class="footer-link">Servicios</a>
+        <a href="#planes" class="footer-link">Planes</a>
+        <a href="#contacto" class="footer-link">Contacto</a>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Contacto</h4>
-      <a href="https://wa.me/51999999999" target="_blank" class="footer-link footer-phone">+51 999 999 999</a>
-      <a href="mailto:contacto@devwebpro.com" class="footer-link footer-email">contacto@devwebpro.com</a>
-      <p class="footer-city">Lima, Peru · Atencion nacional</p>
+    <div class="footer-bottom">
+      <p>© 2026 Tech Strike</p>
+      <p>Webs comerciales con identidad local</p>
     </div>
-    <div class="footer-col">
-      <h4>Atajos</h4>
-      <a href="#servicios" class="footer-link">Servicios</a>
-      <a href="#planes" class="footer-link">Planes</a>
-      <a href="#proceso" class="footer-link">Proceso</a>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <p>© 2026 DevWeb Pro</p>
-    <p>Sitios web para negocios en crecimiento</p>
   </div>
 </footer>
 
-<a href="https://wa.me/51999999999?text=Hola,%20quiero%20informacion" target="_blank" class="wa-float" aria-label="WhatsApp">
+<a href="https://wa.me/51987032689?text=Hola,%20quiero%20informacion" target="_blank" class="wa-float" aria-label="WhatsApp">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
