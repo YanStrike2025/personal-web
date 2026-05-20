@@ -234,6 +234,19 @@ h1 {
   box-shadow: var(--shadow);
 }
 
+.trust-strip {
+  margin-top: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--muted);
+}
+
+.trust-strip strong {
+  color: var(--ink);
+}
+
 .panel-tag {
   color: var(--olive);
   text-transform: uppercase;
@@ -555,6 +568,36 @@ h1 {
   font-size: 0.92rem;
 }
 
+#faq {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+}
+
+.faq-grid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.faq-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.faq-card h3 {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  margin-bottom: 6px;
+}
+
+.faq-card p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 footer {
   border-top: 1px solid var(--line);
   padding: 42px 0 20px;
@@ -660,7 +703,8 @@ footer {
   }
 
   .services-grid,
-  .plans-grid {
+  .plans-grid,
+  .faq-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -676,6 +720,7 @@ footer {
 
   .services-grid,
   .plans-grid,
+  .faq-grid,
   .why-grid,
   .process-steps {
     grid-template-columns: 1fr;
