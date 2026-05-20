@@ -41,9 +41,9 @@ window.addEventListener('scroll', () => {
   }
 
   if (window.scrollY > 80) {
-    nav.style.background = 'rgba(8,12,16,0.95)';
+    nav.style.background = 'rgba(253,251,247,0.98)';
   } else {
-    nav.style.background = 'rgba(8,12,16,0.72)';
+    nav.style.background = 'rgba(253,251,247,0.9)';
   }
 
 });

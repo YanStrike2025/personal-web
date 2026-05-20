@@ -3,544 +3,16 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Desarrollo web profesional para negocios locales y empresas. Sitios web modernos, seguros y escalables con soporte continuo."/>
-<meta name="keywords" content="desarrollo web, páginas web para negocios, diseño web Peru, web profesional"/>
-<title>DevWeb Pro · Soluciones Web Profesionales</title>
+<meta name="description" content="Desarrollo web profesional para negocios en Peru. Sitios modernos, rapidos y orientados a ventas para empresas locales."/>
+<meta name="keywords" content="desarrollo web peru, paginas web para negocios, diseno web lima, landing page peru"/>
+<title>DevWeb Pro | Webs Minimalistas para Negocios en Peru</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
-<style>
-  :root {
-    --bg: #080c10;
-    --bg2: #0d1117;
-    --surface: #111827;
-    --surface2: #1a2235;
-    --border: rgba(255,255,255,0.06);
-    --border-glow: rgba(99,200,255,0.18);
-    --accent: #4fc3f7;
-    --accent2: #7c3aed;
-    --accent3: #06d6a0;
-    --text: #e8edf5;
-    --text-muted: #8892a4;
-    --text-dim: #4a566a;
-    --glow: rgba(79,195,247,0.15);
-    --glow2: rgba(124,58,237,0.12);
-    --radius: 16px;
-    --radius-sm: 10px;
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.65;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* SCROLLBAR */
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 4px; }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5vw;
-    height: 68px;
-    background: rgba(8,12,16,0.72);
-    backdrop-filter: blur(24px);
-    border-bottom: 1px solid var(--border);
-    transition: all 0.3s ease;
-  }
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.2rem; font-weight: 800;
-    color: var(--text);
-    letter-spacing: -0.01em;
-    display: flex; align-items: center; gap: 8px;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--accent); }
-  .nav-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--accent); 
-    box-shadow: 0 0 10px var(--accent);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
-
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a { 
-    color: var(--text-muted); font-size: 0.875rem; text-decoration: none;
-    transition: color 0.2s; letter-spacing: 0.01em;
-  }
-  .nav-links a:hover { color: var(--text); }
-  .nav-cta {
-    background: linear-gradient(135deg, var(--accent), #0ea5e9);
-    color: #000 !important; font-weight: 600;
-    padding: 8px 20px; border-radius: 8px;
-    transition: all 0.2s ease !important;
-    box-shadow: 0 0 20px rgba(79,195,247,0.3);
-  }
-  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(79,195,247,0.5) !important; color: #000 !important; }
-
-  .nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; color: var(--text); }
-
-  /* HERO */
-  #hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-    padding: 120px 5vw 80px;
-    text-align: center;
-  }
-
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(79,195,247,0.06) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(124,58,237,0.07) 0%, transparent 70%);
-  }
-  .grid-overlay {
-    position: absolute; inset: 0; z-index: 0;
-    background-image: 
-      linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, transparent 75%);
-  }
-
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(79,195,247,0.08); border: 1px solid rgba(79,195,247,0.2);
-    color: var(--accent); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
-    padding: 6px 16px; border-radius: 100px;
-    margin-bottom: 28px; position: relative; z-index: 1;
-    animation: fadeSlideUp 0.6s ease both;
-    text-transform: uppercase;
-  }
-  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.5s infinite; }
-
-  h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.6rem, 6vw, 5rem);
-    font-weight: 800; line-height: 1.08;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    position: relative; z-index: 1;
-    max-width: 900px;
-    animation: fadeSlideUp 0.7s 0.1s ease both;
-  }
-  h1 .gradient-text {
-    background: linear-gradient(135deg, var(--accent), #a78bfa, var(--accent3));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-sub {
-    margin-top: 20px;
-    color: var(--text-muted); font-size: clamp(1rem, 2vw, 1.15rem);
-    max-width: 600px; line-height: 1.7;
-    position: relative; z-index: 1;
-    animation: fadeSlideUp 0.7s 0.2s ease both;
-  }
-
-  .hero-ctas {
-    display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
-    margin-top: 36px; position: relative; z-index: 1;
-    animation: fadeSlideUp 0.7s 0.3s ease both;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), #0ea5e9);
-    color: #000; font-weight: 700; font-size: 0.95rem;
-    padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer;
-    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-    transition: all 0.25s ease;
-    box-shadow: 0 0 30px rgba(79,195,247,0.25), 0 4px 12px rgba(0,0,0,0.3);
-    letter-spacing: 0.01em;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(79,195,247,0.4), 0 8px 20px rgba(0,0,0,0.4); }
-
-  .btn-ghost {
-    background: transparent; color: var(--text); font-weight: 500; font-size: 0.95rem;
-    padding: 14px 28px; border-radius: 10px; border: 1px solid var(--border);
-    cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-    transition: all 0.25s ease;
-    backdrop-filter: blur(8px);
-  }
-  .btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); transform: translateY(-1px); }
-
-  .trust-badges {
-    display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: center;
-    margin-top: 52px; position: relative; z-index: 1;
-    animation: fadeSlideUp 0.7s 0.4s ease both;
-  }
-  .trust-item { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.82rem; }
-  .trust-icon { width: 18px; height: 18px; color: var(--accent3); flex-shrink: 0; }
-  .trust-sep { width: 1px; height: 20px; background: var(--border); }
-
-  .hero-stats {
-    display: flex; gap: 48px; flex-wrap: wrap; justify-content: center;
-    margin-top: 60px; padding-top: 48px;
-    border-top: 1px solid var(--border);
-    position: relative; z-index: 1; width: 100%; max-width: 700px;
-    animation: fadeSlideUp 0.7s 0.5s ease both;
-  }
-  .stat { text-align: center; }
-  .stat-num {
-    font-family: var(--font-display); font-size: 2rem; font-weight: 800;
-    color: var(--text); line-height: 1;
-    background: linear-gradient(135deg, var(--text), var(--accent));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .stat-label { color: var(--text-dim); font-size: 0.8rem; margin-top: 4px; letter-spacing: 0.03em; }
-
-  @keyframes fadeSlideUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
-
-  /* SECTIONS */
-  section { padding: 96px 5vw; }
-  .section-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    color: var(--accent); font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .section-tag::before {
-    content: ''; display: block; width: 20px; height: 1px; background: var(--accent);
-  }
-  .section-title {
-    font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 800; letter-spacing: -0.025em; line-height: 1.15;
-    color: var(--text);
-  }
-  .section-sub { color: var(--text-muted); font-size: 1.05rem; margin-top: 12px; max-width: 540px; line-height: 1.7; }
-
-  .container { max-width: 1200px; margin: 0 auto; }
-
-  /* SERVICES */
-  #servicios { background: var(--bg2); }
-  .services-header { text-align: center; margin-bottom: 64px; }
-  .services-header .section-sub { margin: 12px auto 0; }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-  }
-  .service-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 28px;
-    position: relative; overflow: hidden;
-    transition: all 0.3s ease;
-    cursor: default;
-  }
-  .service-card::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(circle at top right, var(--glow), transparent 65%);
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .service-card:hover { border-color: var(--border-glow); transform: translateY(-4px); }
-  .service-card:hover::before { opacity: 1; }
-  .service-card:nth-child(3n+2)::before { background: radial-gradient(circle at top right, var(--glow2), transparent 65%); }
-
-  .service-icon {
-    width: 44px; height: 44px; border-radius: 10px;
-    background: rgba(79,195,247,0.1); border: 1px solid rgba(79,195,247,0.2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem; margin-bottom: 16px;
-    transition: all 0.3s;
-  }
-  .service-card:hover .service-icon { background: rgba(79,195,247,0.18); transform: scale(1.05); }
-  .service-icon.purple { background: rgba(124,58,237,0.12); border-color: rgba(124,58,237,0.25); }
-  .service-icon.green { background: rgba(6,214,160,0.1); border-color: rgba(6,214,160,0.25); }
-
-  .service-card h3 {
-    font-family: var(--font-display); font-size: 1rem; font-weight: 700;
-    color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em;
-  }
-  .service-card p { color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; }
-
-  /* BENEFITS */
-  #beneficios { background: var(--bg); }
-  .benefits-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .benefits-visual {
-    position: relative; display: flex; align-items: center; justify-content: center;
-    height: 380px;
-  }
-  .benefits-core {
-    width: 160px; height: 160px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(79,195,247,0.12), rgba(79,195,247,0.03));
-    border: 1px solid rgba(79,195,247,0.3);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.5rem;
-    box-shadow: 0 0 60px rgba(79,195,247,0.12), inset 0 0 40px rgba(79,195,247,0.05);
-    animation: rotateSlow 20s linear infinite;
-    position: relative; z-index: 2;
-  }
-  .orbit {
-    position: absolute; border-radius: 50%; border: 1px dashed rgba(79,195,247,0.15);
-    animation: rotateSlow 12s linear infinite;
-  }
-  .orbit-1 { width: 240px; height: 240px; animation-duration: 10s; }
-  .orbit-2 { width: 320px; height: 320px; animation-duration: 15s; animation-direction: reverse; }
-  .orbit-3 { width: 380px; height: 380px; animation-duration: 22s; border-color: rgba(124,58,237,0.1); }
-  @keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-
-  .orbit-node {
-    position: absolute; width: 10px; height: 10px; border-radius: 50%;
-    background: var(--accent); box-shadow: 0 0 12px var(--accent);
-    top: -5px; left: calc(50% - 5px);
-  }
-  .orbit-node.purple { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; }
-  .orbit-node.green { background: var(--accent3); box-shadow: 0 0 12px var(--accent3); }
-
-  .benefits-list { display: flex; flex-direction: column; gap: 20px; }
-  .benefit-item {
-    display: flex; gap: 16px; align-items: flex-start;
-    padding: 20px; border-radius: var(--radius-sm);
-    border: 1px solid transparent;
-    transition: all 0.3s;
-  }
-  .benefit-item:hover { background: var(--surface); border-color: var(--border); }
-  .benefit-item-icon {
-    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-  }
-  .benefit-item h4 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-  .benefit-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
-
-  /* PLANS */
-  #planes { background: var(--bg2); }
-  .plans-header { text-align: center; margin-bottom: 64px; }
-  .plans-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 24px; max-width: 1000px; margin: 0 auto;
-    align-items: stretch;
-  }
-  .plan-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 36px 28px;
-    display: flex; flex-direction: column;
-    transition: all 0.35s ease; position: relative; overflow: hidden;
-  }
-  .plan-card::after {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: var(--accent); opacity: 0; transition: opacity 0.3s;
-  }
-  .plan-card:hover { transform: translateY(-6px); border-color: rgba(79,195,247,0.2); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-  .plan-card:hover::after { opacity: 1; }
-
-  .plan-card.featured {
-    background: linear-gradient(160deg, var(--surface2), var(--surface));
-    border-color: rgba(79,195,247,0.3);
-    box-shadow: 0 0 0 1px rgba(79,195,247,0.15), 0 20px 60px rgba(0,0,0,0.5);
-    transform: scale(1.03);
-  }
-  .plan-card.featured::after { opacity: 1; background: linear-gradient(90deg, var(--accent), #a78bfa); }
-  .plan-card.featured:hover { transform: scale(1.03) translateY(-6px); }
-
-  .plan-badge {
-    display: inline-block; background: linear-gradient(135deg, var(--accent), #0ea5e9);
-    color: #000; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; padding: 4px 10px; border-radius: 100px;
-    margin-bottom: 20px;
-  }
-  .plan-name {
-    font-family: var(--font-display); font-size: 1.25rem; font-weight: 800;
-    color: var(--text); margin-bottom: 4px;
-  }
-  .plan-desc { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 24px; }
-  .plan-price {
-    display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px;
-  }
-  .plan-price-main {
-    font-family: var(--font-display); font-size: 2.6rem; font-weight: 800;
-    color: var(--text); letter-spacing: -0.03em;
-  }
-  .plan-price-curr { color: var(--text-muted); font-size: 1.1rem; font-weight: 500; margin-right: 2px; }
-  .plan-period { color: var(--text-dim); font-size: 0.8rem; margin-bottom: 28px; }
-  .plan-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
-  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-  .plan-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; color: var(--text-muted); }
-  .check { color: var(--accent3); flex-shrink: 0; font-size: 0.9rem; margin-top: 1px; }
-  .plan-cta {
-    display: block; text-align: center; padding: 13px;
-    border-radius: 10px; font-weight: 700; font-size: 0.9rem; font-family: var(--font-display);
-    text-decoration: none; transition: all 0.25s; margin-top: 28px;
-    letter-spacing: 0.02em; cursor: pointer; border: none;
-  }
-  .plan-cta.primary {
-    background: linear-gradient(135deg, var(--accent), #0ea5e9);
-    color: #000; box-shadow: 0 0 24px rgba(79,195,247,0.25);
-  }
-  .plan-cta.primary:hover { box-shadow: 0 0 36px rgba(79,195,247,0.45); transform: translateY(-1px); }
-  .plan-cta.outline {
-    background: transparent; color: var(--text);
-    border: 1px solid var(--border);
-  }
-  .plan-cta.outline:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
-
-  /* WHY ME */
-  #porque { background: var(--bg); }
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-  .why-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 28px; transition: all 0.3s;
-  }
-  .why-card:hover { border-color: var(--border-glow); transform: translateY(-3px); }
-  .why-num {
-    font-family: var(--font-display); font-size: 3rem; font-weight: 800;
-    color: rgba(79,195,247,0.1); letter-spacing: -0.05em; line-height: 1;
-    margin-bottom: 16px;
-  }
-  .why-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-  .why-card p { color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; }
-
-  /* PROCESS */
-  #proceso { background: var(--bg2); }
-  .process-header { text-align: center; margin-bottom: 64px; }
-  .process-steps { display: flex; gap: 0; position: relative; }
-  .process-steps::before {
-    content: ''; position: absolute; top: 28px; left: 28px; right: 28px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity: 0.3; z-index: 0;
-  }
-  .step {
-    flex: 1; text-align: center; padding: 0 16px; position: relative; z-index: 1;
-  }
-  .step-num {
-    width: 56px; height: 56px; border-radius: 50%;
-    background: var(--surface); border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--accent);
-    margin: 0 auto 20px;
-    transition: all 0.3s;
-  }
-  .step:hover .step-num { border-color: var(--accent); box-shadow: 0 0 20px rgba(79,195,247,0.3); background: rgba(79,195,247,0.08); }
-  .step-icon { font-size: 1.5rem; margin-bottom: 8px; }
-  .step h3 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-  .step p { color: var(--text-dim); font-size: 0.82rem; line-height: 1.6; }
-
-  /* FOOTER */
-  footer {
-    background: var(--bg); border-top: 1px solid var(--border);
-    padding: 64px 5vw 36px;
-  }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto; }
-  .footer-brand p { color: var(--text-muted); font-size: 0.875rem; margin: 14px 0 24px; max-width: 280px; line-height: 1.7; }
-  .footer-socials { display: flex; gap: 12px; }
-  .social-link {
-    width: 36px; height: 36px; border-radius: 8px;
-    background: var(--surface); border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
-    transition: all 0.2s;
-  }
-  .social-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,195,247,0.08); }
-  .footer-col h4 { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 16px; letter-spacing: 0.02em; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-col ul li a { color: var(--text-muted); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
-  .footer-col ul li a:hover { color: var(--text); }
-  .footer-contact-item { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; }
-  .footer-contact-item span { font-size: 0.95rem; }
-  .footer-bottom {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: 36px; margin-top: 48px; border-top: 1px solid var(--border);
-    max-width: 1200px; margin-left: auto; margin-right: auto;
-    flex-wrap: wrap; gap: 12px;
-  }
-  .footer-bottom p { color: var(--text-dim); font-size: 0.8rem; }
-
-  /* WHATSAPP FLOAT */
-  .wa-float {
-    position: fixed; bottom: 28px; right: 28px; z-index: 200;
-    width: 54px; height: 54px; border-radius: 50%;
-    background: #25d366; border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-    text-decoration: none;
-    animation: bounceSoft 2.5s ease-in-out infinite;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); animation: none; }
-  @keyframes bounceSoft { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-
-  /* SCROLL REVEAL */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .nav-mobile-btn { display: flex; }
-    .benefits-layout { grid-template-columns: 1fr; }
-    .benefits-visual { height: 220px; }
-    .orbit-3 { width: 280px; height: 280px; }
-    .orbit-2 { width: 220px; height: 220px; }
-    .orbit-1 { width: 170px; height: 170px; }
-    .benefits-core { width: 110px; height: 110px; font-size: 1.8rem; }
-    .plans-grid { grid-template-columns: 1fr; max-width: 400px; }
-    .plan-card.featured { transform: scale(1); }
-    .plan-card.featured:hover { transform: translateY(-6px); }
-    .process-steps { flex-direction: column; gap: 32px; }
-    .process-steps::before { display: none; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-  }
-  @media (max-width: 600px) {
-    section { padding: 72px 5vw; }
-    .hero-stats { gap: 28px; }
-    .trust-badges { gap: 14px; }
-    .trust-sep { display: none; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-    .services-grid { grid-template-columns: 1fr; }
-  }
-
-  /* GLOW LINE */
-  .glow-line {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.4), transparent);
-    margin: 0;
-  }
-
-  /* GLASS CARD */
-  .glass {
-    background: rgba(255,255,255,0.02);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-
-  /* Mobile menu */
-  .mobile-menu {
-    position: fixed; top: 68px; left: 0; right: 0;
-    background: rgba(8,12,16,0.98); backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 20px 5vw 24px;
-    z-index: 99; display: none; flex-direction: column; gap: 16px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a { color: var(--text-muted); text-decoration: none; font-size: 1rem; padding: 8px 0; border-bottom: 1px solid var(--border); }
-  .mobile-menu a:last-child { border: none; }
-</style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo"><div class="nav-dot"></div>Dev<span>Web</span> Pro</a>
   <ul class="nav-links">
@@ -548,9 +20,9 @@
     <li><a href="#beneficios">Beneficios</a></li>
     <li><a href="#planes">Planes</a></li>
     <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#contacto" class="nav-cta">Cotizar →</a></li>
+    <li><a href="#contacto" class="nav-cta">Cotizar</a></li>
   </ul>
-  <button class="nav-mobile-btn" onclick="toggleMenu()" aria-label="Menú">
+  <button class="nav-mobile-btn" onclick="toggleMenu()" aria-label="Menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
 </nav>
@@ -559,487 +31,196 @@
   <a href="#servicios" onclick="toggleMenu()">Servicios</a>
   <a href="#beneficios" onclick="toggleMenu()">Beneficios</a>
   <a href="#planes" onclick="toggleMenu()">Planes</a>
-  <a href="#porque" onclick="toggleMenu()">Por qué elegirme</a>
+  <a href="#porque" onclick="toggleMenu()">Por que elegirme</a>
   <a href="#proceso" onclick="toggleMenu()">Proceso</a>
   <a href="#contacto" onclick="toggleMenu()">Cotizar proyecto</a>
 </div>
 
-<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="grid-overlay"></div>
-
-  <div class="hero-badge">
-    <div class="badge-dot"></div>
-    Desarrollo Web Profesional · Disponible ahora
-  </div>
-
-  <h1>
-    Tu negocio merece una<br/>
-    <span class="gradient-text">presencia digital</span><br/>
-    que genere resultados
-  </h1>
-
-  <p class="hero-sub">
-    Diseño y desarrollo páginas web modernas, rápidas y seguras para negocios locales, restaurantes, tiendas y profesionales que quieren crecer online.
-  </p>
-
-  <div class="hero-ctas">
-    <a href="https://wa.me/51999999999?text=Hola,%20quiero%20cotizar%20mi%20página%20web" target="_blank" class="btn-primary">
-      Solicitar asesoría gratuita
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-    <a href="#planes" class="btn-ghost">
-      Ver planes
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-    </a>
-  </div>
-
-  <div class="trust-badges">
-    <div class="trust-item">
-      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Entrega puntual garantizada
+  <div class="hero-grid container">
+    <div class="hero-copy reveal">
+      <p class="hero-kicker">Diseno web para empresas peruanas</p>
+      <h1>Webs claras, rapidas y confiables para convertir visitas en clientes.</h1>
+      <p class="hero-sub">Ayudo a negocios en Lima, Arequipa, Trujillo y todo Peru a vender mejor online con una presencia moderna y facil de mantener.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/51999999999?text=Hola,%20quiero%20cotizar%20una%20pagina%20web" target="_blank" class="btn-primary">Cotizar por WhatsApp</a>
+        <a href="#planes" class="btn-ghost">Ver planes</a>
+      </div>
+      <ul class="hero-points">
+        <li>Entrega en 10 a 15 dias</li>
+        <li>Precio anual en soles (S/)</li>
+        <li>Soporte directo sin intermediarios</li>
+      </ul>
     </div>
-    <div class="trust-sep"></div>
-    <div class="trust-item">
-      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Soporte técnico 24/7
-    </div>
-    <div class="trust-sep"></div>
-    <div class="trust-item">
-      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      Resultados en 15 días
-    </div>
-    <div class="trust-sep"></div>
-    <div class="trust-item">
-      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.12.96.36 1.9.69 2.8a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.33 1.84.57 2.8.69A2 2 0 0122 16.92z"/></svg>
-      Atención personalizada
-    </div>
-  </div>
-
-  <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">50+</div>
-      <div class="stat-label">Proyectos entregados</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">98%</div>
-      <div class="stat-label">Clientes satisfechos</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">15d</div>
-      <div class="stat-label">Tiempo promedio de entrega</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">5★</div>
-      <div class="stat-label">Valoración promedio</div>
+    <div class="hero-panel reveal reveal-delay-1">
+      <p class="panel-tag">Plan recomendado</p>
+      <h2>Plan Standard</h2>
+      <p class="panel-price">S/ 1,600 <span>anual</span></p>
+      <ul>
+        <li>Hasta 10 secciones</li>
+        <li>Integracion con WhatsApp Business</li>
+        <li>Soporte prioritario</li>
+      </ul>
+      <a href="https://wa.me/51999999999?text=Me%20interesa%20el%20Plan%20Standard" target="_blank" class="panel-link">Solicitar propuesta</a>
     </div>
   </div>
 </section>
 
-<div class="glow-line"></div>
-
-<!-- SERVICES -->
 <section id="servicios">
   <div class="container">
-    <div class="services-header reveal">
-      <div class="section-tag">Lo que ofrezco</div>
-      <h2 class="section-title">Servicios completos de<br/>desarrollo web profesional</h2>
-      <p class="section-sub">Todo lo que tu negocio necesita para estar presente y destacar en internet, desde el diseño hasta el mantenimiento continuo.</p>
+    <div class="section-head reveal">
+      <p class="section-tag">Servicios</p>
+      <h2 class="section-title">Soluciones puntuales para crecer en digital</h2>
+      <p class="section-sub section-center-sub">Solo lo que necesitas para captar mas clientes y atender mejor.</p>
     </div>
-
     <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon">🌐</div>
-        <h3>Desarrollo web profesional</h3>
-        <p>Sitios web modernos, rápidos y optimizados adaptados al 100% a tu negocio y público objetivo.</p>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon">🔗</div>
-        <h3>URLs y dominios personalizados</h3>
-        <p>Configuración de dominio propio, SSL y hosting profesional para que tu marca luzca auténtica.</p>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon purple">🛠️</div>
-        <h3>Soporte técnico personalizado</h3>
-        <p>Asistencia directa y rápida ante cualquier problema. Sin tickets, sin esperas, sin complicaciones.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon green">💬</div>
-        <h3>Asistencia y asesoría 24/7</h3>
-        <p>Disponible en todo momento para atender tus consultas, cambios urgentes o actualizaciones de contenido.</p>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon">⚡</div>
-        <h3>Páginas dinámicas y estilizadas</h3>
-        <p>Interfaces interactivas con animaciones modernas que convierten visitantes en clientes reales.</p>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon purple">🔌</div>
-        <h3>Integración de APIs</h3>
-        <p>Conecta tu web con herramientas externas: pagos, mapas, redes sociales, ERPs y mucho más.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon green">🤖</div>
-        <h3>Chatbots inteligentes</h3>
-        <p>Automatiza la atención al cliente con bots que responden, capturan leads y califican prospectos.</p>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon">🗄️</div>
-        <h3>Gestión de bases de datos</h3>
-        <p>Sistemas robustos para administrar productos, clientes, reservas o cualquier dato de tu negocio.</p>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon purple">📸</div>
-        <h3>Multimedia y archivos</h3>
-        <p>Gestión optimizada de imágenes, videos, catálogos y documentos con carga rápida y almacenamiento eficiente.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon green">📱</div>
-        <h3>Integración con redes sociales</h3>
-        <p>Conecta tu Instagram, Facebook, WhatsApp y más para una presencia digital integrada y coherente.</p>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon">🔄</div>
-        <h3>Optimización y mantenimiento</h3>
-        <p>Actualizaciones constantes, mejoras de velocidad y monitoreo continuo para que tu web siempre rinda al máximo.</p>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon purple">🌍</div>
-        <h3>Soporte internacional</h3>
-        <p>Atención a clientes de Perú, Latinoamérica, España y cualquier parte del mundo con zonas horarias flexibles.</p>
-      </div>
+      <article class="service-card reveal">
+        <h3>Landing pages de conversion</h3>
+        <p>Paginas pensadas para vender un servicio especifico con mensajes claros y CTA directo.</p>
+      </article>
+      <article class="service-card reveal reveal-delay-1">
+        <h3>Web corporativa profesional</h3>
+        <p>Presenta tu empresa con credibilidad, casos de exito y canales de contacto rapidos.</p>
+      </article>
+      <article class="service-card reveal reveal-delay-2">
+        <h3>Catalogo de productos</h3>
+        <p>Muestra productos o servicios con informacion ordenada para acelerar decisiones de compra.</p>
+      </article>
+      <article class="service-card reveal">
+        <h3>Integraciones clave</h3>
+        <p>WhatsApp, formularios inteligentes, Google Maps y herramientas de seguimiento.</p>
+      </article>
+      <article class="service-card reveal reveal-delay-1">
+        <h3>Mantenimiento mensual</h3>
+        <p>Actualizaciones, respaldo y soporte para que tu web siempre este operativa y segura.</p>
+      </article>
+      <article class="service-card reveal reveal-delay-2">
+        <h3>Optimizacion SEO local</h3>
+        <p>Mejor visibilidad en busquedas de tu ciudad para atraer clientes cercanos.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- BENEFITS -->
 <section id="beneficios">
-  <div class="container">
-    <div class="benefits-layout">
-      <div class="benefits-visual">
-        <div class="orbit orbit-3"><div class="orbit-node green"></div></div>
-        <div class="orbit orbit-2"><div class="orbit-node purple"></div></div>
-        <div class="orbit orbit-1"><div class="orbit-node"></div></div>
-        <div class="benefits-core">💼</div>
-      </div>
-      <div>
-        <div class="section-tag reveal">Beneficios reales</div>
-        <h2 class="section-title reveal">Lo que gana tu<br/>negocio al digitalizarse</h2>
-        <p class="section-sub reveal" style="margin-bottom:32px">Una presencia web profesional no es un gasto, es la inversión más rentable para crecer tu negocio.</p>
-
-        <div class="benefits-list">
-          <div class="benefit-item reveal">
-            <div class="benefit-item-icon" style="background:rgba(79,195,247,0.1)">📈</div>
-            <div>
-              <h4>Mayor captación de clientes</h4>
-              <p>Tu negocio visible las 24 horas, captando prospectos incluso mientras duermes.</p>
-            </div>
-          </div>
-          <div class="benefit-item reveal reveal-delay-1">
-            <div class="benefit-item-icon" style="background:rgba(124,58,237,0.12)">⚡</div>
-            <div>
-              <h4>Velocidad y rendimiento superior</h4>
-              <p>Sitios ultrarrápidos que no pierden clientes por tiempos de carga lentos.</p>
-            </div>
-          </div>
-          <div class="benefit-item reveal reveal-delay-2">
-            <div class="benefit-item-icon" style="background:rgba(6,214,160,0.1)">🔒</div>
-            <div>
-              <h4>Seguridad profesional</h4>
-              <p>Protección avanzada para los datos de tu negocio y la confianza de tus clientes.</p>
-            </div>
-          </div>
-          <div class="benefit-item reveal">
-            <div class="benefit-item-icon" style="background:rgba(79,195,247,0.1)">🚀</div>
-            <div>
-              <h4>Escalabilidad garantizada</h4>
-              <p>Tu web crece contigo: más funciones, más usuarios, más ventas sin empezar desde cero.</p>
-            </div>
-          </div>
-          <div class="benefit-item reveal reveal-delay-1">
-            <div class="benefit-item-icon" style="background:rgba(124,58,237,0.12)">🤖</div>
-            <div>
-              <h4>Automatización de atención</h4>
-              <p>Chatbots y formularios que responden, califican y convierten prospectos automáticamente.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="container benefits-layout">
+    <div class="reveal">
+      <p class="section-tag">Beneficios</p>
+      <h2 class="section-title">Diseno minimalista que genera confianza</h2>
+      <p class="section-sub benefits-sub">Una interfaz limpia comunica profesionalismo y facilita que tus clientes te contacten en segundos.</p>
+    </div>
+    <div class="benefits-list">
+      <div class="benefit-item reveal"><span class="benefit-item-icon icon-accent">01</span><p>Navegacion simple y enfocada en conversion.</p></div>
+      <div class="benefit-item reveal reveal-delay-1"><span class="benefit-item-icon icon-olive">02</span><p>Tiempo de carga rapido para no perder oportunidades.</p></div>
+      <div class="benefit-item reveal reveal-delay-2"><span class="benefit-item-icon icon-accent">03</span><p>Mensajes claros para clientes B2B y negocios locales.</p></div>
+      <div class="benefit-item reveal"><span class="benefit-item-icon icon-olive">04</span><p>Diseno responsive para movil, tablet y escritorio.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PLANS -->
 <section id="planes">
   <div class="container">
-    <div class="plans-header reveal">
-      <div class="section-tag">Inversión</div>
-      <h2 class="section-title">Planes de suscripción anual</h2>
-      <p class="section-sub" style="margin:12px auto 0">Precio transparente, sin costos ocultos. Todo incluido: desarrollo, hosting, soporte y mantenimiento.</p>
+    <div class="section-head reveal">
+      <p class="section-tag">Planes anuales</p>
+      <h2 class="section-title">Inversion clara, sin costos ocultos</h2>
+      <p class="section-sub section-center-sub plans-sub">Todos los planes incluyen hosting, dominio, SSL y soporte tecnico.</p>
     </div>
-
     <div class="plans-grid">
-      <!-- Básico -->
-      <div class="plan-card reveal">
-        <div class="plan-name">Básico</div>
-        <div class="plan-desc">Ideal para negocios que inician su presencia online</div>
-        <div class="plan-price">
-          <span class="plan-price-curr">S/</span>
-          <span class="plan-price-main">1,200</span>
-        </div>
-        <div class="plan-period">por año · pago anual</div>
-        <div class="plan-divider"></div>
+      <article class="plan-card reveal">
+        <h3 class="plan-name">Basico</h3>
+        <p class="plan-price">S/ 1,200 <span>/ anual</span></p>
         <ul class="plan-features">
-          <li><span class="check">✓</span> Página web hasta 5 secciones</li>
-          <li><span class="check">✓</span> Dominio personalizado incluido</li>
-          <li><span class="check">✓</span> Hosting y SSL incluidos</li>
-          <li><span class="check">✓</span> Diseño responsive mobile-first</li>
-          <li><span class="check">✓</span> Formulario de contacto</li>
-          <li><span class="check">✓</span> Integración con redes sociales</li>
-          <li><span class="check">✓</span> 2 actualizaciones de contenido/mes</li>
-          <li><span class="check">✓</span> Soporte técnico por WhatsApp</li>
-          <li><span class="check">✓</span> Google Analytics básico</li>
+          <li>Hasta 5 secciones</li>
+          <li>Formulario de contacto</li>
+          <li>2 cambios de contenido al mes</li>
         </ul>
-        <button class="plan-cta outline" onclick="window.open('https://wa.me/51999999999?text=Quiero%20el%20Plan%20Básico')">Elegir Básico</button>
-      </div>
-
-      <!-- Standard -->
-      <div class="plan-card featured reveal reveal-delay-1">
-        <div class="plan-badge">⭐ Más popular</div>
-        <div class="plan-name">Standard</div>
-        <div class="plan-desc">Para negocios que quieren destacar y convertir más</div>
-        <div class="plan-price">
-          <span class="plan-price-curr">S/</span>
-          <span class="plan-price-main">1,600</span>
-        </div>
-        <div class="plan-period">por año · pago anual</div>
-        <div class="plan-divider"></div>
+        <a class="plan-cta" href="https://wa.me/51999999999?text=Quiero%20el%20Plan%20Basico" target="_blank">Elegir Basico</a>
+      </article>
+      <article class="plan-card featured reveal reveal-delay-1">
+        <p class="plan-badge">Mas elegido</p>
+        <h3 class="plan-name">Standard</h3>
+        <p class="plan-price">S/ 1,600 <span>/ anual</span></p>
         <ul class="plan-features">
-          <li><span class="check">✓</span> Todo del plan Básico</li>
-          <li><span class="check">✓</span> Hasta 10 secciones o páginas</li>
-          <li><span class="check">✓</span> Animaciones premium y UI avanzado</li>
-          <li><span class="check">✓</span> Chatbot de atención básico</li>
-          <li><span class="check">✓</span> Integración con WhatsApp Business</li>
-          <li><span class="check">✓</span> Galería multimedia optimizada</li>
-          <li><span class="check">✓</span> 5 actualizaciones de contenido/mes</li>
-          <li><span class="check">✓</span> Soporte prioritario 24/7</li>
-          <li><span class="check">✓</span> SEO básico configurado</li>
-          <li><span class="check">✓</span> Velocidad optimizada (Core Web Vitals)</li>
+          <li>Hasta 10 secciones</li>
+          <li>WhatsApp Business integrado</li>
+          <li>5 cambios de contenido al mes</li>
         </ul>
-        <button class="plan-cta primary" onclick="window.open('https://wa.me/51999999999?text=Quiero%20el%20Plan%20Standard')">Elegir Standard</button>
-      </div>
-
-      <!-- Profesional -->
-      <div class="plan-card reveal reveal-delay-2">
-        <div class="plan-name">Profesional</div>
-        <div class="plan-desc">Para empresas que buscan automatización y máximo impacto</div>
-        <div class="plan-price">
-          <span class="plan-price-curr">S/</span>
-          <span class="plan-price-main">2,000</span>
-        </div>
-        <div class="plan-period">por año · pago anual</div>
-        <div class="plan-divider"></div>
+        <a class="plan-cta" href="https://wa.me/51999999999?text=Quiero%20el%20Plan%20Standard" target="_blank">Elegir Standard</a>
+      </article>
+      <article class="plan-card reveal reveal-delay-2">
+        <h3 class="plan-name">Profesional</h3>
+        <p class="plan-price">S/ 2,000 <span>/ anual</span></p>
         <ul class="plan-features">
-          <li><span class="check">✓</span> Todo del plan Standard</li>
-          <li><span class="check">✓</span> Páginas ilimitadas</li>
-          <li><span class="check">✓</span> Chatbot con IA integrada</li>
-          <li><span class="check">✓</span> Integración con APIs externas</li>
-          <li><span class="check">✓</span> Panel de administración propio</li>
-          <li><span class="check">✓</span> Gestión de base de datos</li>
-          <li><span class="check">✓</span> Actualizaciones ilimitadas</li>
-          <li><span class="check">✓</span> Soporte VIP personalizado</li>
-          <li><span class="check">✓</span> SEO avanzado + reportes mensuales</li>
-          <li><span class="check">✓</span> Integración con sistemas de pago</li>
-          <li><span class="check">✓</span> Escalabilidad empresarial</li>
+          <li>Paginas ilimitadas</li>
+          <li>Integraciones avanzadas y API</li>
+          <li>Soporte VIP y mejoras continuas</li>
         </ul>
-        <button class="plan-cta outline" onclick="window.open('https://wa.me/51999999999?text=Quiero%20el%20Plan%20Profesional')">Elegir Profesional</button>
-      </div>
+        <a class="plan-cta" href="https://wa.me/51999999999?text=Quiero%20el%20Plan%20Profesional" target="_blank">Elegir Profesional</a>
+      </article>
     </div>
-
-    <p class="reveal" style="text-align:center;color:var(--text-dim);font-size:0.82rem;margin-top:28px;">¿Necesitas algo personalizado? <a href="https://wa.me/51999999999" target="_blank" style="color:var(--accent);text-decoration:none;">Contáctame y armamos un plan a tu medida →</a></p>
+    <p class="custom-plan-note reveal">Si necesitas un flujo personalizado para tu rubro, te propongo un plan a medida.</p>
   </div>
 </section>
 
-<!-- WHY ME -->
 <section id="porque">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start" class="why-layout">
-      <div>
-        <div class="section-tag reveal">Diferenciadores</div>
-        <h2 class="section-title reveal">¿Por qué<br/>elegirme a mí?</h2>
-        <p class="section-sub reveal">No soy una agencia. Soy un profesional que trabaja directamente contigo, entendiendo tu negocio, tus metas y tu mercado.</p>
-        <a href="https://wa.me/51999999999?text=Quiero%20conocer%20más%20sobre%20tus%20servicios" target="_blank" class="btn-primary reveal" style="display:inline-flex;margin-top:28px">
-          Hablar ahora
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-      <div class="why-grid">
-        <div class="why-card reveal">
-          <div class="why-num">01</div>
-          <h3>Atención 100% personalizada</h3>
-          <p>Hablo directamente contigo desde el día uno. Sin intermediarios, sin ejecutivos de cuenta, sin demoras.</p>
-        </div>
-        <div class="why-card reveal reveal-delay-1">
-          <div class="why-num">02</div>
-          <h3>Comunicación constante</h3>
-          <p>Te mantengo informado de cada avance. Siempre sabrás en qué etapa está tu proyecto.</p>
-        </div>
-        <div class="why-card reveal">
-          <div class="why-num">03</div>
-          <h3>Tecnología de vanguardia</h3>
-          <p>Uso las últimas herramientas y frameworks para construir sitios rápidos, seguros y escalables.</p>
-        </div>
-        <div class="why-card reveal reveal-delay-1">
-          <div class="why-num">04</div>
-          <h3>Soporte post-entrega real</h3>
-          <p>No desaparezco al entregar el proyecto. Estoy disponible para cambios, mejoras y emergencias.</p>
-        </div>
-        <div class="why-card reveal">
-          <div class="why-num">05</div>
-          <h3>Diseño orientado a conversión</h3>
-          <p>No solo diseño bonito, sino estratégico: cada elemento está pensado para atraer y convertir clientes.</p>
-        </div>
-        <div class="why-card reveal reveal-delay-1">
-          <div class="why-num">06</div>
-          <h3>Precio justo y transparente</h3>
-          <p>Sabes exactamente lo que incluye cada plan. Sin costos ocultos ni sorpresas al final del mes.</p>
-        </div>
-      </div>
+  <div class="container why-layout">
+    <div class="reveal">
+      <p class="section-tag">Por que elegirme</p>
+      <h2 class="section-title">Trabajo directo contigo y tus objetivos comerciales</h2>
+      <a href="https://wa.me/51999999999?text=Quiero%20conocer%20mas%20sobre%20tu%20servicio" target="_blank" class="btn-primary why-cta">Hablemos hoy</a>
+    </div>
+    <div class="why-grid">
+      <article class="why-card reveal"><h3>Estrategia antes que diseno</h3><p>Primero definimos objetivos, luego construimos la web.</p></article>
+      <article class="why-card reveal reveal-delay-1"><h3>Comunicacion constante</h3><p>Recibes avances y feedback semanal durante el proyecto.</p></article>
+      <article class="why-card reveal"><h3>Enfoque en resultados</h3><p>Todo el sitio se orienta a mas contactos y mas ventas.</p></article>
+      <article class="why-card reveal reveal-delay-1"><h3>Soporte real post entrega</h3><p>No quedas solo despues de publicar tu pagina.</p></article>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
 <section id="proceso">
   <div class="container">
-    <div class="process-header reveal">
-      <div class="section-tag">Cómo trabajo</div>
-      <h2 class="section-title">Un proceso claro y<br/>sin complicaciones</h2>
-      <p class="section-sub" style="margin:12px auto 0">De la idea a la web publicada en pasos simples y comunicación constante.</p>
+    <div class="section-head reveal">
+      <p class="section-tag">Proceso</p>
+      <h2 class="section-title">Pasos simples, ejecucion rapida</h2>
+      <p class="section-sub section-center-sub">Un flujo corto para que tu web salga en tiempo y con calidad.</p>
     </div>
-
     <div class="process-steps">
-      <div class="step reveal">
-        <div class="step-num">1</div>
-        <div class="step-icon">💬</div>
-        <h3>Consulta inicial</h3>
-        <p>Conversamos sobre tu negocio, objetivos, público y necesidades específicas sin costo.</p>
-      </div>
-      <div class="step reveal reveal-delay-1">
-        <div class="step-num">2</div>
-        <div class="step-icon">📋</div>
-        <h3>Planificación</h3>
-        <p>Defino la arquitectura, funcionalidades, tecnologías y cronograma de entrega detallado.</p>
-      </div>
-      <div class="step reveal reveal-delay-2">
-        <div class="step-num">3</div>
-        <div class="step-icon">🎨</div>
-        <h3>Diseño</h3>
-        <p>Creo el diseño visual adaptado a tu marca, con revisiones hasta que quedes 100% conforme.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">4</div>
-        <div class="step-icon">⚙️</div>
-        <h3>Desarrollo</h3>
-        <p>Programo cada funcionalidad con código limpio, seguro y optimizado para máximo rendimiento.</p>
-      </div>
-      <div class="step reveal reveal-delay-1">
-        <div class="step-num">5</div>
-        <div class="step-icon">🚀</div>
-        <h3>Publicación</h3>
-        <p>Configuro hosting, dominio, SSL y publicamos tu sitio con pruebas exhaustivas previas.</p>
-      </div>
-      <div class="step reveal reveal-delay-2">
-        <div class="step-num">6</div>
-        <div class="step-icon">🔄</div>
-        <h3>Soporte continuo</h3>
-        <p>Mantenimiento mensual, actualizaciones, mejoras y soporte técnico durante todo el año.</p>
-      </div>
+      <article class="step reveal"><span class="step-num">1</span><h3>Brief</h3><p>Definimos publico, oferta y objetivo comercial.</p></article>
+      <article class="step reveal reveal-delay-1"><span class="step-num">2</span><h3>Diseno</h3><p>Presento propuesta visual y estructura de contenidos.</p></article>
+      <article class="step reveal reveal-delay-2"><span class="step-num">3</span><h3>Desarrollo</h3><p>Construyo, optimizo y conecto tus canales de contacto.</p></article>
+      <article class="step reveal"><span class="step-num">4</span><h3>Lanzamiento</h3><p>Publicamos, medimos y ajustamos los primeros resultados.</p></article>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<div class="glow-line"></div>
 <footer id="contacto">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="#hero" class="nav-logo" style="text-decoration:none;display:inline-flex">
-        <div class="nav-dot"></div>Dev<span style="color:var(--accent)">Web</span> Pro
-      </a>
-      <p>Desarrollo web profesional para negocios que quieren crecer. Sitios modernos, seguros y con soporte real.</p>
-      <div class="footer-socials">
-        <a href="#" class="social-link" title="Instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-        </a>
-        <a href="#" class="social-link" title="Facebook">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-        </a>
-        <a href="https://wa.me/51999999999" target="_blank" class="social-link" title="WhatsApp">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        </a>
-        <a href="mailto:contacto@devwebpro.com" class="social-link" title="Email">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
-      </div>
+  <div class="container footer-grid">
+    <div>
+      <a href="#hero" class="nav-logo footer-logo"><div class="nav-dot"></div>Dev<span>Web</span> Pro</a>
+      <p class="footer-text">Diseno y desarrollo web para negocios que buscan una presencia digital confiable en Peru.</p>
     </div>
-
-    <div class="footer-col">
-      <h4>Servicios</h4>
-      <ul>
-        <li><a href="#servicios">Desarrollo web</a></li>
-        <li><a href="#servicios">Diseño UI/UX</a></li>
-        <li><a href="#servicios">Chatbots</a></li>
-        <li><a href="#servicios">APIs e integraciones</a></li>
-        <li><a href="#servicios">Mantenimiento web</a></li>
-        <li><a href="#servicios">Optimización SEO</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Navegación</h4>
-      <ul>
-        <li><a href="#hero">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#beneficios">Beneficios</a></li>
-        <li><a href="#planes">Planes</a></li>
-        <li><a href="#porque">Por qué yo</a></li>
-        <li><a href="#proceso">Proceso</a></li>
-      </ul>
-    </div>
-
     <div class="footer-col">
       <h4>Contacto</h4>
-      <div class="footer-contact-item">
-        <span>📱</span>
-        <a href="https://wa.me/51999999999" target="_blank" style="color:var(--text-muted);text-decoration:none;font-size:0.85rem">+51 999 999 999</a>
-      </div>
-      <div class="footer-contact-item">
-        <span>✉️</span>
-        <a href="mailto:contacto@devwebpro.com" style="color:var(--text-muted);text-decoration:none;font-size:0.85rem">contacto@devwebpro.com</a>
-      </div>
-      <div class="footer-contact-item">
-        <span>🌍</span>
-        <span style="font-size:0.85rem">Lima, Perú · Atención internacional</span>
-      </div>
-      <div style="margin-top:20px">
-        <a href="https://wa.me/51999999999?text=Quiero%20cotizar%20mi%20página%20web" target="_blank" class="btn-primary" style="font-size:0.82rem;padding:10px 18px">
-          💬 Cotizar por WhatsApp
-        </a>
-      </div>
+      <a href="https://wa.me/51999999999" target="_blank" class="footer-link footer-phone">+51 999 999 999</a>
+      <a href="mailto:contacto@devwebpro.com" class="footer-link footer-email">contacto@devwebpro.com</a>
+      <p class="footer-city">Lima, Peru · Atencion nacional</p>
+    </div>
+    <div class="footer-col">
+      <h4>Atajos</h4>
+      <a href="#servicios" class="footer-link">Servicios</a>
+      <a href="#planes" class="footer-link">Planes</a>
+      <a href="#proceso" class="footer-link">Proceso</a>
     </div>
   </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 DevWeb Pro · Todos los derechos reservados</p>
-    <p>Hecho con ❤️ para negocios que crecen · Lima, Perú</p>
+  <div class="container footer-bottom">
+    <p>© 2026 DevWeb Pro</p>
+    <p>Sitios web para negocios en crecimiento</p>
   </div>
 </footer>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/51999999999?text=Hola,%20quiero%20información%20sobre%20sus%20servicios%20web" target="_blank" class="wa-float" title="Chatear por WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<a href="https://wa.me/51999999999?text=Hola,%20quiero%20informacion" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script src="assets/js/main.js" defer></script>
