@@ -481,22 +481,6 @@ function setWhatsAppLinks(entries) {
   });
 }
 
-function detectClientLanguage() {
-  const available = [navigator.language, ...(navigator.languages || [])]
-    .filter(Boolean)
-    .map((lang) => String(lang).toLowerCase());
-
-  if (available.some((lang) => lang.startsWith('en'))) {
-    return 'en';
-  }
-
-  if (available.some((lang) => lang.startsWith('es'))) {
-    return 'es';
-  }
-
-  return 'en';
-}
-
 function applyLanguage(language) {
   const config = translations[language] || translations.en;
   currentLanguage = language;
@@ -554,7 +538,7 @@ function closeMenu() {
   }
 }
 
-applyLanguage(detectClientLanguage());
+applyLanguage('es');
 
 if (languageToggle) {
   languageToggle.addEventListener('click', () => {
