@@ -1,11 +1,29 @@
 // Mobile menu
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
+  const button = document.querySelector('.nav-mobile-btn');
   if (!menu) {
     return;
   }
 
   menu.classList.toggle('open');
+  if (button) {
+    button.setAttribute('aria-expanded', menu.classList.contains('open') ? 'true' : 'false');
+  }
+}
+
+function closeMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const button = document.querySelector('.nav-mobile-btn');
+
+  if (!menu || !menu.classList.contains('open')) {
+    return;
+  }
+
+  menu.classList.remove('open');
+  if (button) {
+    button.setAttribute('aria-expanded', 'false');
+  }
 }
 
 // Scroll reveal
@@ -34,19 +52,25 @@ if ('IntersectionObserver' in window) {
 // Navbar scroll effect
 const nav = document.querySelector('nav');
 
-window.addEventListener('scroll', () => {
-
+function updateNavOnScroll() {
   if (!nav) {
     return;
   }
 
-  if (window.scrollY > 80) {
-    nav.style.background = 'rgba(255,250,242,0.98)';
+  if (window.scrollY > 24) {
+    nav.classList.add('nav-scrolled');
   } else {
-    nav.style.background = 'rgba(255,250,242,0.84)';
+    nav.classList.remove('nav-scrolled');
   }
+}
 
+window.addEventListener('scroll', updateNavOnScroll, { passive: true });
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1024) {
+    closeMenu();
+  }
 });
+updateNavOnScroll();
 
 // Animated custom URL rotator
 const heroUrlText = document.getElementById('heroUrlText');
