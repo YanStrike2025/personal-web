@@ -17,6 +17,19 @@ let customUrls = [];
 let urlIndex = 0;
 
 const whatsappNumber = '51987032689';
+const EXCHANGE_RATE_FALLBACK = 3.75;
+const EXCHANGE_REFRESH_INTERVAL_MS = 10 * 60 * 1000;
+const EXCHANGE_STALE_MS = 15 * 60 * 1000;
+
+const planPricesUsd = {
+  monthly: [25, 150, 320],
+  oneTime: [180, 650, 950],
+  renewal: [30, 80, 150],
+};
+
+let usdToPenRate = EXCHANGE_RATE_FALLBACK;
+let exchangeRateRequested = false;
+let lastExchangeSyncAt = 0;
 
 const translations = {
   en: {
@@ -147,6 +160,11 @@ const translations = {
       '.plan-card-basic .plan-price-compact span': ['one-time payment', '/', '3 months of support and benefits'],
       '.plan-card-standard .plan-price-compact span': ['one-time payment', '/', '3 months of support and benefits'],
       '.plan-card-advanced .plan-price-compact span': ['one-time payment', '/', '3 months of support and benefits'],
+      '.plan-copy': [
+        'Ideal for businesses that need a professional, modern, and informational digital presence to showcase services and make contact easier.',
+        'Ideal for businesses looking for a professional platform to showcase products or services, attract clients, and manage content with ease.',
+        'Designed for businesses that need a modern, scalable platform ready to grow alongside the company.',
+      ],
       '.plan-card-basic .plan-features li': [
         'Professional web design',
         'Informational website',
@@ -208,9 +226,9 @@ const translations = {
     },
     htmlList: {
       '.plan-renewal': [
-        'Renewal after the first year from <strong>S/ 60 monthly</strong>',
-        'Renewal after the first year from <strong>S/ 250 monthly</strong>',
-        'Renewal after the first year from <strong>S/ 350 monthly</strong>',
+        'Renewal after the first year from <strong class="plan-renewal-amount">S/ 60 monthly</strong>',
+        'Renewal after the first year from <strong class="plan-renewal-amount">S/ 250 monthly</strong>',
+        'Renewal after the first year from <strong class="plan-renewal-amount">S/ 350 monthly</strong>',
       ],
     },
     whatsapp: {
@@ -352,6 +370,11 @@ const translations = {
       '.plan-card-basic .plan-price-compact span': ['pago unico', '/', '3 meses de soporte y beneficios'],
       '.plan-card-standard .plan-price-compact span': ['pago unico', '/', '3 meses de soporte y beneficios'],
       '.plan-card-advanced .plan-price-compact span': ['pago unico', '/', '3 meses de soporte y beneficios'],
+      '.plan-copy': [
+        'Ideal para negocios que necesitan una presencia digital profesional, moderna e informativa para mostrar sus servicios y facilitar el contacto.',
+        'Ideal para negocios que buscan una plataforma profesional para mostrar productos o servicios, captar clientes y administrar contenido facilmente.',
+        'Pensado para negocios que necesitan una plataforma moderna, escalable y preparada para crecer junto a su empresa.',
+      ],
       '.plan-card-basic .plan-features li': [
         'Diseno web profesional',
         'Pagina web informativa',
@@ -413,9 +436,9 @@ const translations = {
     },
     htmlList: {
       '.plan-renewal': [
-        'Renovacion despues del primer ano desde <strong>S/ 60 mensuales</strong>',
-        'Renovacion despues del primer ano desde <strong>S/ 250 mensuales</strong>',
-        'Renovacion despues del primer ano desde <strong>S/ 350 mensuales</strong>',
+        'Renovacion despues del primer año desde <strong class="plan-renewal-amount">S/ 60 mensuales</strong>',
+        'Renovacion despues del primer año desde <strong class="plan-renewal-amount">S/ 250 mensuales</strong>',
+        'Renovacion despues del primer año desde <strong class="plan-renewal-amount">S/ 350 mensuales</strong>',
       ],
     },
     whatsapp: {
@@ -481,6 +504,82 @@ function setWhatsAppLinks(entries) {
   });
 }
 
+function convertUsdToPen(usdAmount) {
+  return usdAmount * usdToPenRate;
+}
+
+function formatCurrency(amount, currency) {
+  const locale = currency === 'USD' ? 'en-US' : 'es-PE';
+  const roundedAmount = Math.round(amount);
+  const options = {
+    style: 'currency',
+    currency,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  };
+
+  return new Intl.NumberFormat(locale, options).format(roundedAmount);
+}
+
+function updatePriceNodes(selector, values, language, suffix = '') {
+  const nodes = document.querySelectorAll(selector);
+  const useUsd = language === 'en';
+
+  nodes.forEach((node, index) => {
+    const usdValue = values[index];
+    if (usdValue === undefined) {
+      return;
+    }
+
+    const converted = useUsd ? usdValue : convertUsdToPen(usdValue);
+    const currency = useUsd ? 'USD' : 'PEN';
+    node.textContent = `${formatCurrency(converted, currency)}${suffix}`;
+  });
+}
+
+function updatePlanPrices(language) {
+  updatePriceNodes('.plan-amount-monthly', planPricesUsd.monthly, language);
+  updatePriceNodes('.plan-amount-onetime', planPricesUsd.oneTime, language);
+
+  const renewalSuffix = language === 'en' ? ' monthly' : ' mensuales';
+  updatePriceNodes('.plan-renewal-amount', planPricesUsd.renewal, language, renewalSuffix);
+}
+
+async function loadUsdToPenRate() {
+  if (exchangeRateRequested) {
+    return;
+  }
+
+  exchangeRateRequested = true;
+
+  try {
+    const response = await fetch('https://open.er-api.com/v6/latest/USD');
+    if (!response.ok) {
+      return;
+    }
+
+    const data = await response.json();
+    const rate = Number(data && data.rates && data.rates.PEN);
+
+    if (Number.isFinite(rate) && rate > 0) {
+      usdToPenRate = rate;
+      lastExchangeSyncAt = Date.now();
+      updatePlanPrices(currentLanguage);
+    }
+  } catch (error) {
+    // Keep fallback exchange rate when network request fails.
+  } finally {
+    exchangeRateRequested = false;
+  }
+}
+
+function ensureFreshExchangeRate() {
+  const isStale = Date.now() - lastExchangeSyncAt > EXCHANGE_STALE_MS;
+  if (isStale) {
+    loadUsdToPenRate();
+  }
+}
+
 function applyLanguage(language) {
   const config = translations[language] || translations.en;
   currentLanguage = language;
@@ -497,6 +596,8 @@ function applyLanguage(language) {
   Object.entries(config.listText).forEach(([selector, values]) => setTextList(selector, values));
   Object.entries(config.htmlList).forEach(([selector, values]) => setHtmlList(selector, values));
   setWhatsAppLinks(config.whatsapp);
+  updatePlanPrices(language);
+  ensureFreshExchangeRate();
 
   if (languageToggle) {
     if (language === 'en') {
@@ -539,6 +640,14 @@ function closeMenu() {
 }
 
 applyLanguage('es');
+loadUsdToPenRate();
+setInterval(ensureFreshExchangeRate, EXCHANGE_REFRESH_INTERVAL_MS);
+
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    ensureFreshExchangeRate();
+  }
+});
 
 if (languageToggle) {
   languageToggle.addEventListener('click', () => {
