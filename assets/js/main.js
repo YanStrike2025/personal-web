@@ -3,6 +3,9 @@ const hasSaveData = Boolean(navigator.connection && navigator.connection.saveDat
 const lowMemoryDevice = Number(navigator.deviceMemory || 8) <= 4;
 const lowCoreDevice = Number(navigator.hardwareConcurrency || 8) <= 4;
 const isLowEndDevice = prefersReducedMotion || hasSaveData || lowMemoryDevice || lowCoreDevice;
+const isPhoneViewport = window.matchMedia('(max-width: 860px)').matches;
+const isCoarsePointer = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+const allowInteractiveMotion = !isLowEndDevice && !isPhoneViewport && !isCoarsePointer;
 
 if (isLowEndDevice) {
   document.documentElement.classList.add('low-end');
@@ -50,8 +53,10 @@ const translations = {
     ],
     text: {
       'nav[aria-label]': 'Main navigation',
+      '.skip-link': 'Skip to main content',
       '.nav-logo[aria-label]': 'Go to Tech Strike homepage',
       '.nav-mobile-btn[aria-label]': 'Open menu',
+      '.hero-trust[aria-label]': 'Trust indicators',
       '.hero-kicker': 'Strategic web design for businesses',
       '#hero h1': 'Make your business look professional and turn more visits into customers.',
       '.hero-sub':
@@ -86,6 +91,10 @@ const translations = {
       '.plan-card-advanced .plan-cta': 'Get Advanced Plan',
       '.custom-plan-note':
         'Need something else? Message us on WhatsApp and we will prepare a custom proposal for your business.',
+      '#ia .section-tag': 'Powered by AI',
+      '#ia .section-title': 'Built with the world\'s leading AI platforms',
+      '#ia .section-sub':
+        'We combine multiple AI engines to research, create, optimize content, and accelerate project delivery.',
       '#contacto h2': 'Want a different website for your business?',
       '#contacto p':
         'We will show you a visual proposal with a custom domain, professional structure, and a style tailored to your industry.',
@@ -107,6 +116,7 @@ const translations = {
     listText: {
       '.nav-links a': ['Experience', 'Domains', 'Services', 'Plans', 'Get a quote'],
       '.mobile-menu a': ['Experience', 'Custom domains', 'Services', 'Plans', 'Quote on WhatsApp'],
+      '.hero-trust span': ['UX + Conversion', 'SEO Ready', 'WhatsApp First'],
       '.hero-points li': [
         'Responsive design for phone, tablet, and desktop',
         'Modern and professional visual experience',
@@ -243,12 +253,12 @@ const translations = {
   },
   es: {
     htmlLang: 'es',
-    title: 'Tech Strike | Diseno Web Comercial para Negocios',
+    title: 'Tech Strike | Diseño Web Comercial para Negocios',
     metaDescription:
-      'Diseno web profesional para negocios. Creamos paginas modernas, rapidas y orientadas a conversion, con dominio personalizado, enfoque comercial y contacto directo por WhatsApp.',
-    metaOgTitle: 'Tech Strike | Diseno Web Comercial para Negocios',
+      'Diseño web profesional para negocios. Creamos páginas modernas, rápidas y orientadas a conversión, con dominio personalizado, enfoque comercial y contacto directo por WhatsApp.',
+    metaOgTitle: 'Tech Strike | Diseño Web Comercial para Negocios',
     metaOgDescription:
-      'Sitios web modernos, profesionales y orientados a conversion para negocios que buscan crecer en internet.',
+      'Sitios web modernos, profesionales y orientados a conversión para negocios que buscan crecer en internet.',
     urls: [
       'cafebarranco.com',
       'clinicasanmartin.com',
@@ -258,97 +268,104 @@ const translations = {
       'estudiocreativo.com',
     ],
     text: {
-      'nav[aria-label]': 'Navegacion principal',
+      'nav[aria-label]': 'Navegación principal',
+      '.skip-link': 'Saltar al contenido principal',
       '.nav-logo[aria-label]': 'Ir al inicio de Tech Strike',
-      '.nav-mobile-btn[aria-label]': 'Abrir menu',
-      '.hero-kicker': 'Diseno web estrategico para negocios',
-      '#hero h1': 'Haz que tu negocio se vea profesional y convierta mas visitas en clientes.',
+      '.nav-mobile-btn[aria-label]': 'Abrir menú',
+      '.hero-trust[aria-label]': 'Indicadores de confianza',
+      '.hero-kicker': 'Diseño web estratégico para negocios',
+      '#hero h1': 'Haz que tu negocio se vea profesional y convierta más visitas en clientes.',
       '.hero-sub':
-        'En Tech Strike disenamos sitios web modernos, rapidos y orientados a resultados, con identidad visual solida, estructura clara y canales de contacto directos para ayudarte a captar mas oportunidades.',
+        'En Tech Strike diseñamos sitios web modernos, rápidos y orientados a resultados, con identidad visual sólida, estructura clara y canales de contacto directos para ayudarte a captar más oportunidades.',
       '.hero-ctas .btn-primary': 'Solicitar propuesta',
       '.hero-ctas .btn-ghost': 'Ver planes',
-      '.pulse-card p': 'Diseno moderno, rapido y orientado a resultados',
+      '.pulse-card p': 'Diseño moderno, rápido y orientado a resultados',
       '#experiencia .section-tag': 'Experiencia visual',
-      '#experiencia .section-title': 'Paginas dinamicas, modernas y minimalistas que hacen tu marca mas memorable',
+      '#experiencia .section-title': 'Páginas dinámicas, modernas y minimalistas que hacen tu marca más memorable',
       '#experiencia .section-sub':
-        'Usamos movimiento con criterio: una experiencia visual profesional, ligera y orientada a conversion.',
+        'Usamos movimiento con criterio: una experiencia visual profesional, ligera y orientada a conversión.',
       '#urls .section-tag': 'Dominio personalizado',
       '#urls .section-title': 'Dominios personalizados para que tu negocio destaque en internet',
       '#urls .section-sub':
-        'Haz que tu marca proyecte confianza con una URL profesional, facil de recordar y alineada a tu identidad comercial. Un dominio bien elegido mejora tu presencia digital y ayuda a que tus clientes te encuentren con mas facilidad.',
+        'Haz que tu marca proyecte confianza con una URL profesional, fácil de recordar y alineada a tu identidad comercial. Un dominio bien elegido mejora tu presencia digital y ayuda a que tus clientes te encuentren con más facilidad.',
       '.url-cta': 'Quiero mi dominio personalizado',
       '#servicios .section-tag': 'Servicios',
-      '#servicios .section-title': 'Soluciones web listas para vender mas y atender mejor',
+      '#servicios .section-title': 'Soluciones web listas para vender más y atender mejor',
       '#servicios .section-sub':
         'Cada servicio se adapta a tu rubro, tu propuesta y la forma en la que compran tus clientes.',
       '#planes .section-tag': 'Planes',
-      '#planes .section-title': 'Soluciones web disenadas para impulsar tu negocio',
+      '#planes .section-title': 'Soluciones web diseñadas para impulsar tu negocio',
       '#planes .plans-sub':
-        'Planes claros, profesionales y escalables para negocios que buscan presencia digital, captacion de clientes y soporte continuo.',
-      '.plan-card-basic .plan-name': 'Plan Basico',
-      '.plan-card-standard .plan-name': 'Plan Estandar',
+        'Planes claros, profesionales y escalables para negocios que buscan presencia digital, captación de clientes y soporte continuo.',
+      '.plan-card-basic .plan-name': 'Plan Básico',
+      '.plan-card-standard .plan-name': 'Plan Estándar',
       '.plan-card-advanced .plan-name': 'Plan Avanzado',
       '.plan-card-basic .plan-label': 'Incluye:',
       '.plan-card-standard .plan-label': 'Incluye:',
       '.plan-card-advanced .plan-label': 'Incluye:',
-      '.plan-card-basic .plan-cta': 'Cotizar Plan Basico',
-      '.plan-card-standard .plan-cta': 'Cotizar Plan Estandar',
+      '.plan-card-basic .plan-cta': 'Cotizar Plan Básico',
+      '.plan-card-standard .plan-cta': 'Cotizar Plan Estándar',
       '.plan-card-advanced .plan-cta': 'Cotizar Plan Avanzado',
       '.custom-plan-note':
-        'No encuentras lo que buscas? Escribenos por WhatsApp y te preparamos una propuesta personalizada.',
-      '#contacto h2': 'Quieres una web diferente para tu negocio?',
+        '¿No encuentras lo que buscas? Escríbenos por WhatsApp y te preparamos una propuesta personalizada.',
+      '#ia .section-tag': 'Potenciado por IA',
+      '#ia .section-title': 'Construimos con las inteligencias artificiales más conocidas del mercado',
+      '#ia .section-sub':
+        'Integramos múltiples motores de IA para investigar, crear, optimizar contenido y acelerar la ejecución de tu proyecto.',
+      '#contacto h2': '¿Quieres una web diferente para tu negocio?',
       '#contacto p':
         'Te mostramos una propuesta visual con dominio personalizado, estructura profesional y estilo adaptado a tu rubro.',
       '#contacto .btn-primary': 'Solicitar propuesta personalizada',
       '#faq .section-tag': 'Preguntas frecuentes',
       '#faq .section-title': 'Todo claro antes de empezar',
-      '.footer-text': 'Diseno web para marcas que quieren verse profesionales y convertir mas contactos.',
+      '.footer-text': 'Diseño web para marcas que quieren verse profesionales y convertir más contactos.',
       '.footer-col:nth-child(2) h4': 'Contacto',
-      '.footer-city': 'Lima, Peru - Atencion nacional e internacional',
+      '.footer-city': 'Lima, Perú - Atención nacional e internacional',
       '.footer-col:nth-child(3) h4': 'Atajos',
       '.footer-bottom p:nth-child(2)': 'Webs comerciales con identidad local',
       '.wa-float[aria-label]': 'Abrir WhatsApp',
       '.plans-tags[aria-label]': 'Beneficios de los planes',
-      '.gif-card:nth-child(1) video[aria-label]': 'Seccion animada con enfoque comercial para pagina web',
-      '.gif-card:nth-child(2) video[aria-label]': 'Vista de diseno moderno para pagina web comercial',
-      '.gif-card:nth-child(3) video[aria-label]': 'Diseno de sitio web amigable y enfocado en experiencia de usuario',
+      '.gif-card:nth-child(1) video[aria-label]': 'Sección animada con enfoque comercial para página web',
+      '.gif-card:nth-child(2) video[aria-label]': 'Vista de diseño moderno para página web comercial',
+      '.gif-card:nth-child(3) video[aria-label]': 'Diseño de sitio web amigable y enfocado en experiencia de usuario',
       '.browser-body video[aria-label]': 'Vista previa animada de una interfaz web profesional',
     },
     listText: {
       '.nav-links a': ['Experiencia', 'Dominios', 'Servicios', 'Planes', 'Cotizar ahora'],
       '.mobile-menu a': ['Experiencia', 'Dominios personalizados', 'Servicios', 'Planes', 'Cotizar por WhatsApp'],
+      '.hero-trust span': ['UX + Conversión', 'SEO Ready', 'WhatsApp First'],
       '.hero-points li': [
-        'Diseno adaptable a celular, tablet y desktop',
+        'Diseño adaptable a celular, tablet y desktop',
         'Experiencia visual moderna y profesional',
-        'WhatsApp, formularios y estructura enfocada en conversion',
+        'WhatsApp, formularios y estructura enfocada en conversión',
       ],
       '.gif-card h3': [
-        'Bloques comerciales con presentacion dinamica',
-        'Presentacion visual moderna y profesional',
-        'Sitios claros, cercanos y faciles de recorrer',
+        'Bloques comerciales con presentación dinámica',
+        'Presentación visual moderna y profesional',
+        'Sitios claros, cercanos y fáciles de recorrer',
       ],
-      '.url-tags span': ['Restaurantes', 'Clinicas', 'Abogados', 'Inmobiliaria'],
+      '.url-tags span': ['Restaurantes', 'Clínicas', 'Abogados', 'Inmobiliaria'],
       '.services-grid .service-card h3': [
-        'Landing page enfocada en conversion',
+        'Landing page enfocada en conversión',
         'Web corporativa de confianza',
-        'Catalogo digital interactivo',
+        'Catálogo digital interactivo',
         'Flujo de contacto optimizado',
         'Animaciones y motion UI',
         'SEO local y mantenimiento',
       ],
       '.services-grid .service-card p': [
-        'Oferta clara, prueba visual y llamados a la accion estrategicos para convertir visitas en conversaciones.',
-        'Diseno elegante para transmitir solidez, fortalecer tu imagen y cerrar oportunidades de mayor valor.',
+        'Oferta clara, prueba visual y llamados a la acción estratégicos para convertir visitas en conversaciones.',
+        'Diseño elegante para transmitir solidez, fortalecer tu imagen y cerrar oportunidades de mayor valor.',
         'Muestra tus productos o servicios con una estructura clara para facilitar decisiones de compra.',
-        'WhatsApp, formularios inteligentes y llamadas a la accion visibles en toda la experiencia del sitio.',
-        'Transiciones suaves y secciones dinamicas para una experiencia moderna, memorable y profesional.',
-        'Optimizacion inicial, mejoras continuas y soporte para mantener tu presencia digital activa y competitiva.',
+        'WhatsApp, formularios inteligentes y llamadas a la acción visibles en toda la experiencia del sitio.',
+        'Transiciones suaves y secciones dinámicas para una experiencia moderna, memorable y profesional.',
+        'Optimización inicial, mejoras continuas y soporte para mantener tu presencia digital activa y competitiva.',
       ],
-      '.plans-tags span': ['Diseno profesional', 'Soporte continuo', 'Infraestructura administrada', 'Preparado para crecer'],
+      '.plans-tags span': ['Diseño profesional', 'Soporte continuo', 'Infraestructura administrada', 'Preparado para crecer'],
       '.plan-card-basic .plan-tags span': ['Base', 'Sitio informativo'],
-      '.plan-card-standard .plan-tags span': ['Recomendado', 'Mas vendido', 'Panel admin'],
+      '.plan-card-standard .plan-tags span': ['Recomendado', 'Más vendido', 'Panel admin'],
       '.plan-card-advanced .plan-tags span': ['Premium', 'Escalable', 'Full stack'],
-      '.plan-card-basic .plan-price span': ['al mes', '/', 'contrato anual', '/', 'dominio incluido', '/', 'soporte basico'],
+      '.plan-card-basic .plan-price span': ['al mes', '/', 'contrato anual', '/', 'dominio incluido', '/', 'soporte básico'],
       '.plan-card-standard .plan-price span': [
         'al mes',
         '/',
@@ -367,88 +384,88 @@ const translations = {
         '/',
         'soporte prioritario y mantenimiento continuo',
       ],
-      '.plan-card-basic .plan-price-compact span': ['pago unico', '/', '3 meses de soporte y beneficios'],
-      '.plan-card-standard .plan-price-compact span': ['pago unico', '/', '3 meses de soporte y beneficios'],
-      '.plan-card-advanced .plan-price-compact span': ['pago unico', '/', '3 meses de soporte y beneficios'],
+      '.plan-card-basic .plan-price-compact span': ['pago único', '/', '3 meses de soporte y beneficios'],
+      '.plan-card-standard .plan-price-compact span': ['pago único', '/', '3 meses de soporte y beneficios'],
+      '.plan-card-advanced .plan-price-compact span': ['pago único', '/', '3 meses de soporte y beneficios'],
       '.plan-copy': [
         'Ideal para negocios que necesitan una presencia digital profesional, moderna e informativa para mostrar sus servicios y facilitar el contacto.',
-        'Ideal para negocios que buscan una plataforma profesional para mostrar productos o servicios, captar clientes y administrar contenido facilmente.',
+        'Ideal para negocios que buscan una plataforma profesional para mostrar productos o servicios, captar clientes y administrar contenido fácilmente.',
         'Pensado para negocios que necesitan una plataforma moderna, escalable y preparada para crecer junto a su empresa.',
       ],
       '.plan-card-basic .plan-features li': [
-        'Diseno web profesional',
-        'Pagina web informativa',
+        'Diseño web profesional',
+        'Página web informativa',
         'Hasta 8 secciones',
-        'Adaptacion para celulares y tablets',
-        'Integracion con WhatsApp y redes sociales',
+        'Adaptación para celulares y tablets',
+        'Integración con WhatsApp y redes sociales',
         'Formulario de contacto',
         'Dominio y hosting administrado por 12 meses',
-        'Optimizacion basica de velocidad',
+        'Optimización básica de velocidad',
         'Actualizaciones menores de contenido',
-        'Soporte tecnico basico',
+        'Soporte técnico básico',
       ],
       '.plan-card-standard .plan-features li': [
-        'Diseno web personalizado',
+        'Diseño web personalizado',
         'Plataforma administrable',
         'Acceso administrativo seguro',
-        'Catalogo de productos o servicios',
-        'Gestion de contenido dinamico',
+        'Catálogo de productos o servicios',
+        'Gestión de contenido dinámico',
         'Formularios de contacto avanzados',
-        'Consultas via WhatsApp y correo',
-        'Gestion basica de clientes y solicitudes',
-        'Optimizacion SEO inicial',
-        'Seguridad y proteccion basica',
-        'Optimizacion de rendimiento',
+        'Consultas vía WhatsApp y correo',
+        'Gestión básica de clientes y solicitudes',
+        'Optimización SEO inicial',
+        'Seguridad y protección básica',
+        'Optimización de rendimiento',
         'Dominio y hosting administrado',
-        'Backups periodicos',
-        'Mantenimiento y soporte tecnico',
+        'Backups periódicos',
+        'Mantenimiento y soporte técnico',
       ],
       '.plan-card-advanced .plan-features li': [
         'Desarrollo web personalizado',
         'Plataforma administrable avanzada',
         'Acceso administrativo seguro',
-        'Catalogo dinamico de productos o servicios',
-        'Gestion avanzada de contenido',
-        'Gestion de pedidos y solicitudes',
-        'Consultas integradas via WhatsApp y correo',
-        'Gestion de clientes y contactos',
+        'Catálogo dinámico de productos o servicios',
+        'Gestión avanzada de contenido',
+        'Gestión de pedidos y solicitudes',
+        'Consultas integradas vía WhatsApp y correo',
+        'Gestión de clientes y contactos',
         'Dashboard administrativo',
-        'Seguridad reforzada y monitoreo basico',
-        'Optimizacion avanzada de velocidad y rendimiento',
+        'Seguridad reforzada y monitoreo básico',
+        'Optimización avanzada de velocidad y rendimiento',
         'Arquitectura preparada para escalar',
-        'Optimizacion SEO tecnica inicial',
+        'Optimización SEO técnica inicial',
         'Infraestructura administrada de alto rendimiento',
-        'Backups automaticos',
+        'Backups automáticos',
         'Mantenimiento continuo',
-        'Soporte tecnico prioritario',
+        'Soporte técnico prioritario',
       ],
       '#faq .faq-card h3': [
-        'Incluye animaciones y elementos visuales dinamicos?',
-        'Puedo tener varias URLs para campanas o servicios?',
-        'En cuanto tiempo estara lista mi web?',
+        '¿Incluye animaciones y elementos visuales dinámicos?',
+        '¿Puedo tener varias URLs para campañas o servicios?',
+        '¿En cuánto tiempo estará lista mi web?',
       ],
       '#faq .faq-card p': [
-        'Si. Disenamos secciones con animaciones ligeras y efectos visuales modernos para mejorar la experiencia sin afectar la velocidad de carga.',
-        'Si. Podemos crear dominios o rutas personalizadas para campanas, temporadas o servicios especificos, adaptadas a tu publico y a tus objetivos comerciales.',
-        'El tiempo promedio de desarrollo es de 10 a 15 dias habiles, incluyendo revisiones y acompanamiento durante el proceso.',
+        'Sí. Diseñamos secciones con animaciones ligeras y efectos visuales modernos para mejorar la experiencia sin afectar la velocidad de carga.',
+        'Sí. Podemos crear dominios o rutas personalizadas para campañas, temporadas o servicios específicos, adaptadas a tu público y a tus objetivos comerciales.',
+        'El tiempo promedio de desarrollo es de 10 a 15 días hábiles, incluyendo revisiones y acompañamiento durante el proceso.',
       ],
       '.footer-col:nth-child(3) .footer-link': ['Dominios personalizados', 'Servicios', 'Planes', 'Contacto'],
     },
     htmlList: {
       '.plan-renewal': [
-        'Renovacion despues del primer año desde <strong class="plan-renewal-amount">S/ 60 mensuales</strong>',
-        'Renovacion despues del primer año desde <strong class="plan-renewal-amount">S/ 250 mensuales</strong>',
-        'Renovacion despues del primer año desde <strong class="plan-renewal-amount">S/ 350 mensuales</strong>',
+        'Renovación después del primer año desde <strong class="plan-renewal-amount">S/ 60 mensuales</strong>',
+        'Renovación después del primer año desde <strong class="plan-renewal-amount">S/ 250 mensuales</strong>',
+        'Renovación después del primer año desde <strong class="plan-renewal-amount">S/ 350 mensuales</strong>',
       ],
     },
     whatsapp: {
       '.hero-ctas .btn-primary': 'Hola, quiero una web profesional para mi negocio',
       '.url-cta': 'Quiero mi dominio personalizado',
-      '.plan-card-basic .plan-cta': 'Quiero el Plan Basico',
-      '.plan-card-standard .plan-cta': 'Quiero el Plan Estandar',
+      '.plan-card-basic .plan-cta': 'Quiero el Plan Básico',
+      '.plan-card-standard .plan-cta': 'Quiero el Plan Estándar',
       '.plan-card-advanced .plan-cta': 'Quiero el Plan Avanzado',
       '#contacto .btn-primary': 'Hola, quiero mi web con dominio personalizado',
-      '.wa-float': 'Hola, quiero informacion',
+      '.wa-float': 'Hola, quiero información',
     },
   },
 };
@@ -700,6 +717,38 @@ window.addEventListener('resize', () => {
   }
 });
 updateNavOnScroll();
+
+if (allowInteractiveMotion) {
+  const magneticNodes = document.querySelectorAll('.magnetic');
+
+  magneticNodes.forEach((node) => {
+    node.addEventListener('mousemove', (event) => {
+      const rect = node.getBoundingClientRect();
+      const moveX = ((event.clientX - rect.left) / rect.width - 0.5) * 12;
+      const moveY = ((event.clientY - rect.top) / rect.height - 0.5) * 12;
+      node.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+
+    node.addEventListener('mouseleave', () => {
+      node.style.transform = '';
+    });
+  });
+
+  const heroParallaxItems = document.querySelectorAll('.hero-orb, .float-ui');
+  window.addEventListener(
+    'pointermove',
+    (event) => {
+      const offsetX = (event.clientX / window.innerWidth - 0.5) * 14;
+      const offsetY = (event.clientY / window.innerHeight - 0.5) * 14;
+
+      heroParallaxItems.forEach((item, index) => {
+        const factor = index % 2 === 0 ? 1 : -1;
+        item.style.transform = `translate(${offsetX * factor}px, ${offsetY * factor}px)`;
+      });
+    },
+    { passive: true }
+  );
+}
 
 function typeUrl(text, target, speed = 42) {
   if (!target) {
